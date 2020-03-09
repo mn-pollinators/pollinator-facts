@@ -26,13 +26,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Pollinator Facts`,
+        short_name: `Pollinator Facts`,
+        lang: `en`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#fafafa`,
+        theme_color: `#4CAF50`,
+        display: `standalone`,
+        icon: `src/images/icon-square.svg`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available, please see:
+          // https://developer.mozilla.org/en-US/docs/Web/Manifest
+          // https://w3c.github.io/manifest/#purpose-member
+          purpose: `maskable`,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
