@@ -1,7 +1,7 @@
 ---
 title: Milkweed
 image: 
-    src: images/monarch-milkweed.jpg
+    src: ../images/monarch-milkweed.jpg
     alt: Monarch Butterfly on Swamp Milkweed
     creator: "Jim Hudgins/USFWS"
     license: Public Domain
