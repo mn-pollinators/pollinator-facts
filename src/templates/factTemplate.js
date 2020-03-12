@@ -3,17 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import LargeFactCard from "../components/large-fact-card"
 
 export default ({ data }) => {
   const fact = data.markdownRemark
   return (
     <Layout>
       <SEO title={fact.frontmatter.title} />
-      <div>
-        <h1>{fact.frontmatter.title}</h1>
-        <Img fluid={fact.frontmatter.image.src.childImageSharp.fluid}/>
-        <div dangerouslySetInnerHTML={{ __html: fact.html }} />
-      </div>
+      <LargeFactCard factTitle={fact.frontmatter.title} factImage={fact.frontmatter.image} factSource={fact.frontmatter.source} factHTML={fact.html} />
     </Layout>
   )
 }
@@ -32,6 +29,14 @@ export const query = graphql`
                     }
                 }
             }
+            alt
+            creator
+            license
+            url
+        }
+        source {
+          name
+          url
         }
       }
     }
