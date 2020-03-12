@@ -33,7 +33,7 @@ module.exports = {
         background_color: `#fafafa`,
         theme_color: `#4CAF50`,
         display: `standalone`,
-        icon: `src/images/icon-square.svg`, // This path is relative to the root of the site.
+        icon: `src/icons/icon-square.svg`, // This path is relative to the root of the site.
         icon_options: {
           // For all the options available, please see:
           // https://developer.mozilla.org/en-US/docs/Web/Manifest
