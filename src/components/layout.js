@@ -8,11 +8,30 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Header from "./header"
 import "./layout.css"
 
+
+const useStyles = makeStyles((theme) => ({
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  }
+}));
+
 const Layout = ({ children }) => {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,21 +44,19 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <AppBar position="sticky">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+          </IconButton>
+          <Typography Typography variant="h6">
+            {data.site.siteMetadata.title}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container maxWidth="sm">
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      </Container>
     </>
   )
 }
