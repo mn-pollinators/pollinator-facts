@@ -9,6 +9,7 @@ image:
 source: 
     name: Minnesota Zoo
     url: http://mnzoo.org/conservation/act-wildlife/plant-pollinators/
+category: habitat
 ---
 
 Milkweed is the only caterpillar food plants of Minnesota’s struggling State Insect, the Monarch butterfly!  Milkweed is also a great nectar source for other pollinators.
