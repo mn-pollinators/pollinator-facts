@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a9924c2b-82d7-43f4-9eda-995a4ce75289/deploy-status)](https://app.netlify.com/sites/pollinator-facts/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
