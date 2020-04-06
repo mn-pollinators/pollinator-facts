@@ -10,6 +10,7 @@ collections:
     label_singular: Fact
     folder: src/facts
     public_folder: '../images'
+    preview_path: /{{slug}}
     create: true
     fields:
       - { name: title, label: Title }
