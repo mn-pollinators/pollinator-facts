@@ -1,7 +1,7 @@
 ---
 title: test fact 2
 image:
-  src: /src/images/gatsby-astronaut.png
+  src: ../images/monarch-milkweed.jpg
   alt: test
   creator: test
   license: test
