@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
           </IconButton>
-          <Typography Typography variant="h6">
+          <Typography variant="h6">
             {data.site.siteMetadata.title}
           </Typography>
         </Toolbar>

@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: mn-pollinators/pollinator-facts
+publish_mode: editorial_workflow
+media_folder: src/images
+site_url: https://pollinator-facts.netlify.com/
+collections:
+  - name: facts
+    label: Facts
+    label_singular: Fact
+    folder: src/facts
+    public_folder: '../images'
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - name: image
+        label: Fact Image
+        widget: object
+        fields: 
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: Alt Text, widget: string }
+          - { name: creator, label: Creator, widget: string }
+          - { name: license, label: License, widget: string }
+          - { name: url, label: Source URL, widget: string }
+      - name: source
+        label: Fact Source
+        widget: object
+        fields: 
+          - { name: name, label: Name, widget: string }
+          - { name: url, label: URL, widget: string }
+      - { name: category, label: Category }
+      - { name: body, label: Body, widget: markdown }

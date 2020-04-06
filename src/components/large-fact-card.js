@@ -57,7 +57,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
           className={classes.body} 
           variant="body2" 
           color="textPrimary" 
-          component="p" 
+          component="div" 
           dangerouslySetInnerHTML={{ __html: factHTML }}
         />
       </CardContent>
