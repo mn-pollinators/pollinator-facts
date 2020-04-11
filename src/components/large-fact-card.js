@@ -36,7 +36,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
   function shareClick() {
     navigator.share({
       title: factTitle,
-      text: `Check out this ${factTitle} fact!`,
+      text: `Check out this ${factTitle} pollinator fact!`,
       url: window.location.href,
     })
   }
