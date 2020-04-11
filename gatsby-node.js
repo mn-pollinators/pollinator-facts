@@ -10,6 +10,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: `${slug}`,
     })
+    createNodeField({
+      node,
+      name: `path`,
+      value: `/f${slug}`,
+    })
   }
 }
 
@@ -22,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              path
             }
           }
         }
@@ -31,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.fields.path,
       component: path.resolve(`./src/templates/factTemplate.js`),
       context: {
         // Data passed to context is available
