@@ -54,7 +54,8 @@ const Layout = ({ children }) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="sm">
+
+      <Container maxWidth="md">
         <main>{children}</main>
       </Container>
     </>
