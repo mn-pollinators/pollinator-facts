@@ -30,6 +30,16 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
   
   const classes = useStyles();
   
+  function shareClick() {
+    navigator.share({
+      title: factTitle,
+      text: `Check out this ${factTitle} pollinator fact!`,
+      url: window.location.href,
+    })
+  }
+
+  const isSSR = typeof window === "undefined"
+  
   return (
     // <div>
     //     <h1>{factTitle}</h1>
@@ -62,15 +72,17 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
       <CardActions disableSpacing>
         <Grid justify="space-between" container alignItems="flex-end">
           <Grid item>
-            <Button color="primary">
+            <Button color="primary" href={factSource ? factSource.url : '#'} rel="noopener noreferrer" target="_blank">
               Source
             </Button>
           </Grid>
-          <Grid item>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-          </Grid>
+            {!isSSR && navigator.share && 
+              <Grid item>
+                <IconButton aria-label="share" onClick={shareClick}>
+                  <ShareIcon />
+                </IconButton>
+              </Grid>
+            }
         </Grid>
       </CardActions>
     </Card>
