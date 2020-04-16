@@ -9,6 +9,8 @@ import LargeFactCard from "../components/large-fact-card"
 
 const useStyles = makeStyles({
   card: {
+    maxWidth: 520,
+    margin: 'auto',
     marginTop: 32,
   },
 });
@@ -41,8 +43,8 @@ export const query = graphql`
         image {
             src {
                 childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid_tracedSVG
+                    fluid(maxWidth: 520) {
+                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                 }
             }
