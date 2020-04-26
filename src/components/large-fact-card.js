@@ -56,7 +56,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        <Typography variant="overline" className={classes.overline}>{factCategory} fact</Typography>
+        <Typography variant="overline" className={classes.overline}>{`${factCategory} fact`}</Typography>
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
         </Typography>
