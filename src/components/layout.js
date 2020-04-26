@@ -16,6 +16,14 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
 
 import Header from "./header"
 import "./layout.css"
@@ -27,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  list: {
+    width: 250,
   }
 }));
 
@@ -42,11 +53,30 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setOpen(open);
+  };
+
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   return (
     <>
+      <CssBaseline />
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton 
+            edge="start" 
+            className={classes.menuButton} 
+            color="inherit" 
+            aria-label="menu"
+            onClick={toggleDrawer(true)}
+          >
               <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="h1">
@@ -54,6 +84,27 @@ const Layout = ({ children }) => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <SwipeableDrawer
+        anchor="left"
+        open={open}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+        //disableBackdropTransition={!iOS} 
+        disableDiscovery={iOS}
+      >
+        <div
+          className={classes.list}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+        <List>
+
+        </List>
+        </div>
+        
+
+      </SwipeableDrawer>
 
       <Container maxWidth="md">
         <main>{children}</main>
