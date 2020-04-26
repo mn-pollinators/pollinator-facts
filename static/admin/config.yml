@@ -3,7 +3,7 @@ backend:
   repo: mn-pollinators/pollinator-facts
 publish_mode: editorial_workflow
 media_folder: src/images
-site_url: https://pollinator-facts.netlify.com
+site_url: https://pollinators.app
 collections:
   - name: facts
     label: Facts
