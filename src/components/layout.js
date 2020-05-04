@@ -24,7 +24,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import HomeIcon from '@Material-ui/icons/Home';
+import HomeIcon from '@material-ui/icons/Home';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
 
 import Header from "./header"
