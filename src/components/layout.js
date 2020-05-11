@@ -25,11 +25,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import HomeIcon from '@material-ui/icons/Home';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
-
-import Header from "./header"
-import "./layout.css"
-
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -104,6 +101,10 @@ const Layout = ({ children }) => {
             <ListItem button component={GatsbyLink} to="/" activeClassName="Mui-selected">
               <ListItemIcon><HomeIcon /></ListItemIcon>
               <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button component={GatsbyLink} to="/facts" activeClassName="Mui-selected">
+              <ListItemIcon><LibraryBooksIcon /></ListItemIcon>
+              <ListItemText primary="All Facts" />
             </ListItem>
           </List>
         </div>
