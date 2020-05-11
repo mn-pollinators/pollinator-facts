@@ -5,7 +5,7 @@ image:
   license: CC BY 2.0
   alt: A bee using buzz pollination
   url: https://www.flickr.com/photos/pondapple/10243478783/
-  src: ../images/10243478783_5f4bc02b57_o.jpg
+  src: ../images/10243478783_5f4bc02b57_o-crop.jpg
 source:
   url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
   name: "Bees: An Identification and Native Plant Forage Guide"
