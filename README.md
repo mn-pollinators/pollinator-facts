@@ -8,7 +8,7 @@
 
 Pollinator Facts is a web app for displaying various pollinator facts.
 
-The app is built with Gatsby, Material-UI, and Netlify.
+The app is built with [Gatsby](https://www.gatsbyjs.org/), [Material-UI](https://material-ui.com/), and [Netlify](https://www.netlify.com/).
 
 ## Usage
 
