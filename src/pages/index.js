@@ -4,7 +4,7 @@ import { Button } from 'gatsby-theme-material-ui';
 import Img from "gatsby-image"
 
 import Carousel from "react-material-ui-carousel"
-
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,18 +12,29 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({data: { allFacts: { edges }}}) => {
+const useStyles = makeStyles({
+  carousel: {
+    padding: '3% 15%'
+  },
+  paper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
+})
 
+const IndexPage = ({data: { allFacts: { edges }}}) => {
+  const classes = useStyles();
   return (
     <Layout>
       <SEO title="Home" />
 
-      <Carousel>
+      <Carousel className={classes.carousel}>
         {edges.map(({ node }) => {
           const { slug } = node.fields
           const { title, image } = node.frontmatter
           return (
-            <Paper  eleveation={3} key={node.id}>
+            <Paper className={classes.paper} eleveation={3} key={node.id}>
               <Typography variant="h5">
                 {title}
               </Typography>
