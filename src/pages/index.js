@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -19,3 +19,29 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const homeQuery = graphql`
+query {
+  allFacts: allMarkdownRemark {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          image {
+            src {
+              childImageSharp {
+                fixed(width: 250) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`
