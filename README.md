@@ -14,6 +14,11 @@ The app is built with [Gatsby](https://www.gatsbyjs.org/), [Material-UI](https:/
 
 The web app is deployed at [pollinators.app](https://pollinators.app/)
 
+## Contributing
+
+If you'd like to contribute, please fork the repository and make changes as
+you'd like. You might want to add facts following our structure. Pull requests are warmly welcome.
+
 ## Development
 
 ### Netlify CMS
@@ -32,7 +37,7 @@ To start developing on your local machine:
 
 All repositories in the Minnesota Pollinators organization are subject to our [Code of Conduct](https://github.com/mn-pollinators/code-of-conduct/blob/master/CODE_OF_CONDUCT.md).
 
----
+## Acknowledgements
 
 Funding for this project was provided by the Minnesota Environment and Natural Resources Trust
 Fund as recommended by the [Legislative-Citizen Commission on Minnesota Resources (LCCMR)](https://www.lccmr.leg.mn/).
