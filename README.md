@@ -1,101 +1,49 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a9924c2b-82d7-43f4-9eda-995a4ce75289/deploy-status)](https://app.netlify.com/sites/pollinator-facts/deploys)
+<div align="center">
+  <img alt="Pollinator Facts Icon" src="https://raw.githubusercontent.com/mn-pollinators/pollinator-facts/master/static/icons/icon-circle.svg?sanitize=true" width="150" />
+  <h1>Pollinator Facts</h1>
+ 
+ [![Netlify Status](https://api.netlify.com/api/v1/badges/a9924c2b-82d7-43f4-9eda-995a4ce75289/deploy-status)](https://app.netlify.com/sites/pollinator-facts/deploys)
+ 
+</div>
 
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+Pollinator Facts is a web app for displaying various pollinator facts.
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+The app is built with [Gatsby](https://www.gatsbyjs.org/), [Material-UI](https://material-ui.com/), and [Netlify](https://www.netlify.com/).
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Usage
 
-## 🚀 Quick start
+The web app is deployed at [pollinators.app](https://pollinators.app/)
 
-1.  **Create a Gatsby site.**
+## Contributing
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+If you'd like to contribute, please fork the repository and make changes as
+you'd like. You might want to add facts following our structure. Pull requests are warmly welcome.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+## Development
 
-1.  **Start developing.**
+### Netlify CMS
 
-    Navigate into your new site’s directory and start it up.
+Our CMS is avaiable at [pollinators.app/admin/](https://pollinators.app/admin/). If you have permission to contribute you can create and edit posts in the web CMS interface.
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+### Local Development Quick Start
 
-1.  **Open the source code and start editing!**
+To start developing on your local machine:
 
-    Your site is now running at `http://localhost:8000`!
+1. Clone the repo
+2. Run `npm install` in the root directory
+3. Run `gatsby develop` to start the dev server
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## Code of Conduct
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+All repositories in the Minnesota Pollinators organization are subject to our [Code of Conduct](https://github.com/mn-pollinators/code-of-conduct/blob/master/CODE_OF_CONDUCT.md).
 
-## 🧐 What's inside?
+## Acknowledgements
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+Funding for this project was provided by the Minnesota Environment and Natural Resources Trust
+Fund as recommended by the [Legislative-Citizen Commission on Minnesota Resources (LCCMR)](https://www.lccmr.leg.mn/).
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+The Trust Fund is a permanent fund constitutionally established by the citizens of Minnesota to
+assist in the protection, conservation, preservation, and enhancement of the state’s air, water, land,
+fish, wildlife, and other natural resources.
+Currently 40% of net Minnesota State Lottery proceeds are dedicated to growing the Trust Fund
+and ensuring future benefits for Minnesota’s environment and natural resources.
