@@ -27,6 +27,7 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
           <SmallFactCard
             key={node.id}
             className={classes.factCard}
+            slug={node.fields.slug}
             title={node.frontmatter.title}
             category={node.frontmatter.category}
             image={node.frontmatter.image}
@@ -36,6 +37,7 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
           <SmallFactCard
             key={node.id}
             className={classes.factCard}
+            slug={node.fields.slug}
             title={node.frontmatter.title}
             category={node.frontmatter.category}
             image={node.frontmatter.image}
