@@ -1,15 +1,32 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { IconButton } from 'gatsby-theme-material-ui';
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
 
+import NavigateBeforeOutlinedIcon from '@material-ui/icons/NavigateBeforeOutlined';
+import NavigateNextOutlinedIcon from '@material-ui/icons/NavigateNextOutlined';
+
 export const useStyles = makeStyles({
-  cards: {
+  container: {
     display: 'flex',
-    overflowX: 'auto',
-    margin: '50px 0'
+    justifyContent: 'center'
+    
+  },
+  cards: {
+    // '@media (min-width: 600px)': {
+      display: 'flex',
+      overflowX: 'auto',
+      margin: '50px 0',
+
+    // },
+    // '@media (max-width: 600px)': {
+      // display: 'flex',
+      // overflowX: 'auto',
+      // margin: '50px 0',
+    // }
   },
   factCard: {
     minWidth: '200px',
@@ -23,8 +40,22 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
     <Layout>
       <SEO title="Page two" />
 
-      <section className={classes.cards}>
-        {edges.map(({ node }) => (
+      <section className={classes.container}>
+        <IconButton aria-label="Previous" >
+          <NavigateBeforeOutlinedIcon />
+        </IconButton>
+        <section className={classes.cards}>
+          {edges.map(({ node }) => (
+              <SmallFactCard
+                key={node.id}
+                className={classes.factCard}
+                slug={node.fields.slug}
+                title={node.frontmatter.title}
+                category={node.frontmatter.category}
+                image={node.frontmatter.image}
+              />
+          ))}
+          {edges.map(({ node }) => (
           <SmallFactCard
             key={node.id}
             className={classes.factCard}
@@ -34,16 +65,10 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
             image={node.frontmatter.image}
           />
         ))}
-        {edges.map(({ node }) => (
-          <SmallFactCard
-            key={node.id}
-            className={classes.factCard}
-            slug={node.fields.slug}
-            title={node.frontmatter.title}
-            category={node.frontmatter.category}
-            image={node.frontmatter.image}
-          />
-        ))}
+        </section>
+        <IconButton aria-label="Next" >
+          <NavigateNextOutlinedIcon />
+        </IconButton>
       </section>
       
       <Link to="/">Go back to the homepage</Link>
@@ -80,3 +105,6 @@ query {
     }
   }
 }`
+
+
+    
