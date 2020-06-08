@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
   cards: {
     display: 'flex',
     overflowX: 'auto',
@@ -22,6 +22,7 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="Home" />
+      
       <section className={classes.cards}>
         {edges.map(({ node }) => (
           <SmallFactCard
