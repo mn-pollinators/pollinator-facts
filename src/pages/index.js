@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
     margin: '50px 0'
   },
   factCard: {
-    minWidth: '200px',
+    minWidth: '190px',
     margin: '5px',
   }
 });
