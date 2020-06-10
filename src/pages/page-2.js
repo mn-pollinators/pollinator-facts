@@ -13,8 +13,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 const useStyles = makeStyles({
   cards: {
-    display: 'flex',
-    overflowX: 'auto',
     margin: '50px 0'
   },
   factCard: {
@@ -40,8 +38,6 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    arrows: true,
-    pauseOnHover: true,
     nextArrow: <SampleArrows/>,
     prevArrow: <SampleArrows/>,
     responsive: [
@@ -49,17 +45,14 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToScroll: 2
         }
       },
       {
@@ -74,7 +67,8 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="Page two" />
-      <Slider {...sliderSettings}>
+
+      <Slider className={classes.cards} {...sliderSettings}>
         {edges.map(({ node }) => (
           <SmallFactCard
             key={node.id}
@@ -96,6 +90,7 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
           />
         ))}
       </Slider>
+
       <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
