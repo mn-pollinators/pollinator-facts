@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     margin: '50px 0'
   },
   factCard: {
-    maxWidth: '190px',
+    width: '190px',
     margin: '5px',
   }
 });
@@ -52,6 +52,7 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
     dots: true,
     arrows: false,
     infinite: true,
+    centerMode: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
