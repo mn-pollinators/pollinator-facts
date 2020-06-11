@@ -26,36 +26,45 @@ const useStyles = makeStyles({
   }
 });
 
-const renderArrows = () => {
+function PrevArrow(props) {
+  const { onClick } = props;
   return (
-    <div className="slider-arrow">
-      <IconButton 
-        className="arrow-btn prev"
-        onClick= {() => Slider.slickPrev()} 
+    <div className="slider-arrow-prev">
+      <IconButton
+        className= "arrow-btn prev"
+        onClick= {onClick}
       >
         <NavigateBeforeRoundedIcon />
       </IconButton>
-      <IconButton 
+    </div>
+  );
+}
+
+function NextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div className="slider-arrow-next">
+      <IconButton
         className="arrow-btn next"
-        onClick= {() => Slider.slickNext()} 
+        onClick= {onClick}
       >
         <NavigateNextRoundedIcon />
       </IconButton>
     </div>
   );
-};
+}
 
 const SecondPage = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
-  const navArrows = renderArrows();
   const sliderSettings = {
     dots: true,
-    arrows: false,
     infinite: true,
     centerMode: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -69,13 +78,15 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          centerMode: false,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          centerMode: false,
         }
       }
     ]
@@ -83,9 +94,8 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="Page two" />
-      
+
       <div  className={classes.container}>
-        {navArrows}
         <Slider className={classes.slider} {...sliderSettings}>
           {edges.map(({ node }) => (
             <SmallFactCard
@@ -109,7 +119,6 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
           ))}
         </Slider>
       </div>
-
       <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
