@@ -1,26 +1,35 @@
-
-/* This was just to spot the default navigation arrows while testing. Should be deleted afterwards
- .slick-prev, .slick-next {
-    background-color: red;
-} */
-
 .slick-slide {
-    display: flex !important;
-    justify-content: center;
+  display: flex !important;
+  justify-content: center;
 }
 
-.slider-arrow {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.slider-arrow-prev {
+  position: absolute;
+  left: .5%;
+  top: 40%;
+}
+
+.slider-arrow-next {
+  position: absolute;
+  left: 95%;
+  top: 40%;
+}
+.arrow-btn {
+  top: 45%;
+  z-index: 1;
+}
+.next {
+  float: right;
+}
+.prev {
+  float: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .slider-arrow-prev {
+    display: none;
   }
-  .arrow-btn {
-    top: 45%;
-    z-index: 1;
+  .slider-arrow-next {
+    display: none;
   }
-  .next {
-    float: right;
-  }
-  .prev {
-      float: left;
-  }
+}
