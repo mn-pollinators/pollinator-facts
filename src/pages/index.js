@@ -46,7 +46,11 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
         ))}
       </section>
 
-      <Link to="/page-2/">Go to page 2</Link>
+      <section style={{ display:'flex', justifyContent:'space-between'}} >
+        <Link to="/page-2/">Go to page 2</Link>
+        <Link to="/page-4/">Go to page 4</Link>
+      </section>
+
     </Layout>
   )
 }
