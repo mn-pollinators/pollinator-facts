@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
+import "../pages/index.css"
 
 export const useStyles = makeStyles({
   cards: {
@@ -13,7 +14,25 @@ export const useStyles = makeStyles({
   },
   factCard: {
     minWidth: '190px',
-    margin: '5px',
+    margin: '5px'
+  },
+  '@media screen and (min-width: 768px)': {
+    '@global': {
+      '*::-webkit-scrollbar': {
+        width: '100px'
+      },
+      '*::-webkit-scrollbar-track': {
+        boxShadow: 'inset 0 0 5px gray', 
+        borderRadius: '10px'
+      },
+      '*::-webkit-scrollbar-thumb': {
+        background: '#4caf50',
+        borderRadius: '10px'
+      },
+      '*::-webkit-scrollbar-thumb:hover': {
+        background: 'green' 
+      }
+    }
   }
 });
 
