@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
-import "../pages/index.css"
 
 export const useStyles = makeStyles({
   cards: {
@@ -22,7 +21,7 @@ export const useStyles = makeStyles({
         width: '100px'
       },
       '*::-webkit-scrollbar-track': {
-        boxShadow: 'inset 0 0 5px gray', 
+        boxShadow: 'inset 0 0 5px gray',
         borderRadius: '10px'
       },
       '*::-webkit-scrollbar-thumb': {
@@ -30,7 +29,7 @@ export const useStyles = makeStyles({
         borderRadius: '10px'
       },
       '*::-webkit-scrollbar-thumb:hover': {
-        background: 'green' 
+        background: 'green'
       }
     }
   }
@@ -41,7 +40,7 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="Home" />
-      
+
       <section className={classes.cards}>
         {edges.map(({ node }) => (
           <SmallFactCard
