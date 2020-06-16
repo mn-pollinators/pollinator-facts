@@ -5,7 +5,7 @@ image:
   alt: Meadow Blazingstar
   creator: USFWS Midwest Region
   url: https://www.flickr.com/photos/usfwsmidwest/15120801615/in/album-72157629800905371/
-  license: Attribution
+  license: CC BY 2.0
 source:
   url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
   name: Minnesota Zoo
