@@ -11,4 +11,4 @@ source:
   name: Minnesota Zoo
 category: habitat
 ---
-Purple coneflowers are brightly colored and attract many pollinators and are a popular summer garden flower that blooms from June to July.
+Purple coneflowers are brightly colored and attract many pollinators.
