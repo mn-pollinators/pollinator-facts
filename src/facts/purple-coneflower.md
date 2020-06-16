@@ -1,7 +1,7 @@
 ---
 title: Purple Coneflower
 image:
-  src: ../images/15264929397_9db643db03_k.jpg
+  src: ../images/purple-coneflower.jpg
   url: https://www.flickr.com/photos/kewing/15264929397
   license: CC BY-NC 2.0
   creator: Keith Ewing
