@@ -17,6 +17,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
+import Divider from '@material-ui/core/Divider';
 
 const factCardStyles = makeStyles({
   media: {
@@ -114,7 +115,13 @@ const dialogStyles = makeStyles(theme => ({
   },
   content: {
     padding: theme.spacing(2)
-  }
+  },
+  section1: {
+    marginBottom: theme.spacing(2),
+  },
+  section2: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 
@@ -139,15 +146,20 @@ function FactInfoDialog(props) {
           </IconButton>
         </MuiDialogTitle>
         <MuiDialogContent>
+        <div className={classes.section1}>
           <Typography gutterBottom>
-            Fact text from: <a href={factSource?.url}>{factSource?.name}</a>
+            Fact text adapted from: <a href={factSource?.url}>{factSource?.name}</a>
           </Typography>
+        </div>
+        <Divider  />
+        <div className={classes.section2}>
           <Typography gutterBottom>
             <a href={factImage?.url}>{factImage?.alt}</a> image by {factImage?.creator}
           </Typography>
           <Typography gutterBottom>
             Licensed under {factImage?.license}
           </Typography>
+        </div>
         </MuiDialogContent>
       </Dialog>
     </div>
