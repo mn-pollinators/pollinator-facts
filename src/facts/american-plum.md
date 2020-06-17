@@ -1,11 +1,11 @@
 ---
 title: "American Plum "
 image:
-  license: CC BY-NC-ND 2.0
-  creator: Dan Mullen
-  url: https://www.flickr.com/photos/8583446@N05
+  license: CC BY 2.0
+  creator: Homer Edward Price
+  url: https://www.flickr.com/photos/28340342@N08
   src: ../images/american-plum.jpg
-  alt: American Plum Blossoms
+  alt: American Plum blossoms
 source:
   name: "Bees: An Identification and Native Plant Forage Guide"
   url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
