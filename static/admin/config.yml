@@ -12,6 +12,8 @@ collections:
     public_folder: '../images'
     preview_path: /f/{{slug}}
     create: true
+    editor:
+      preview: true
     fields:
       - { name: title, label: Title }
       - name: image

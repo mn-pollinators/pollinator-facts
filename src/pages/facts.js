@@ -10,17 +10,27 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Img from "gatsby-image"
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles({
+  title: {
+    marginTop: 16
+  },
+});
 
 const Facts = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
+
+  const classes = useStyles();
+
   return (
   <Layout>
     <SEO title="All Facts" />
-    <Typography variant="h4" component="h1">
+    <Typography variant="h4" component="h1" className={classes.title} >
           Facts
     </Typography>
     <List component="nav">
