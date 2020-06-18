@@ -3,7 +3,7 @@ title: Bee Nesting - Underground
 image:
   alt: Bee Nesting - Underground
   src: ../images/beenestingunderground.jpg
-  license: CC by 2.0
+  license: CC BY 2.0
   url: https://www.flickr.com/photos/minicooper93402/6828563216
   creator: devra
 source:
