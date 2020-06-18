@@ -3,7 +3,7 @@ title: Wild Bergamot (bee balm)
 image:
   src: ../images/wildbergamot.jpg
   url: https://www.flickr.com/photos/tgpotterfield/28237843773
-  license: CC by-NC-SA 2.0
+  license: CC BY-NC-SA 2.0
   alt: Wild Bergamot (bee balm)
   creator: Tom Potterfield
 source:
