@@ -9,7 +9,7 @@ image:
 source:
   url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
   name: "Bees: An Identification and Native Plant Forage Guide"
-category: Habitat
+category: Plant
 ---
 Preferring well-drained soil, stiff-leaved goldenrod is common along roadsides and dry prairies.
 
