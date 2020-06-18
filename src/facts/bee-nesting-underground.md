@@ -1,7 +1,7 @@
 ---
-title: Bee Nesting - Underground
+title: Ground Nesting Bees
 image:
-  alt: Bee Nesting - Underground
+  alt: Ground Nesting Bees
   src: ../images/beenestingunderground.jpg
   license: CC BY 2.0
   url: https://www.flickr.com/photos/minicooper93402/6828563216
