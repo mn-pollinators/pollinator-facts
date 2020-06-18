@@ -12,4 +12,4 @@ source:
     foraging efficiency
 category: Habitat
 ---
-Besides killing bees, pesticides also make it hard for them to do their jobs. In an experiment, bumble bees exposed to small amounts of pesticides only gathered about ⅔ the pollen as normal.
+Besides killing bees, pesticides also make it hard for them to do their jobs. In an experiment, bumble bees exposed to small amounts of pesticides only gathered about two-thirds the pollen as normal.
