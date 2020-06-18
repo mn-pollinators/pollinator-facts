@@ -13,7 +13,8 @@ export const useStyles = makeStyles({
   },
   factCard: {
     minWidth: '190px',
-    margin: '5px'
+    margin: '5px',
+    backgroundColor: '#ffd54f'
   },
   '@media screen and (min-width: 768px)': {
     '@global': {
