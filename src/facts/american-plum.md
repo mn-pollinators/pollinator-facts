@@ -13,4 +13,4 @@ category: habitat
 ---
 
 
-American plum attracts a variety of bees including bumble, cuckoo, cellophane, mining, and small sweat bees.With it’s highly fragrant flowers, the American Plum offers both pollen and nectar to visitors.
+American plum attracts a variety of bees including bumble, cuckoo, cellophane, mining, and small sweat bees. With its highly fragrant flowers, the American Plum offers both pollen and nectar to visitors.
