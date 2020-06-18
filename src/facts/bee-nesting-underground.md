@@ -11,4 +11,4 @@ source:
   url: https://www.beelab.umn.edu/wild-bees/wild-bees-and-houses
 category: Habitat
 ---
-30-40% of bees find cavities to live in, such as hollow branches/stems or dead trees. Inside, they use mud to create chambers for their eggs. Leave fallen trees/branches around your yard to attract bees.
+60-70% of bees live underground. They like to dig tunnels in sandy soil with nothing growing in it. Attract bees using bare, undisturbed soil around your yard.
