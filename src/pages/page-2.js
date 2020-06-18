@@ -59,7 +59,6 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
   const sliderSettings = {
     dots: true,
     infinite: true,
-    centerMode: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
@@ -78,7 +77,6 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          centerMode: false,
         }
       },
       {
@@ -86,7 +84,6 @@ const SecondPage = ({data: { allFacts: { edges }}}) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          centerMode: false,
         }
       }
     ]
