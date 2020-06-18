@@ -4,7 +4,7 @@ image:
   src: ../images/treecavity.jpg
   creator: Andrei Zverev
   alt: Bee Nesting - Cavities
-  license: CC by-NC 2.0
+  license: CC BY-NC 2.0
   url: https://www.flickr.com/photos/azibiss/28735555852
 source:
   url: https://www.beelab.umn.edu/wild-bees/wild-bees-and-houses
