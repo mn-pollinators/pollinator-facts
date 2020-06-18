@@ -7,7 +7,7 @@ image:
   url: https://www.flickr.com/photos/minicooper93402/6828563216
   creator: devra
 source:
-  name: Wild Bee Nests and Building Wild Bee Houses Nesting Habitat
+  name: Wild bee nests
   url: https://www.beelab.umn.edu/wild-bees/wild-bees-and-houses
 category: habitat
 ---
