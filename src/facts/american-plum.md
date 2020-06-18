@@ -3,7 +3,7 @@ title: "American Plum "
 image:
   license: CC BY 2.0
   creator: Homer Edward Price
-  url: www.flickr.com/photos/28340342@N08/2969269623
+  url: https://www.flickr.com/photos/28340342@N08/2969269623
   src: ../images/american-plum.jpg
   alt: American Plum blossoms
 source:
