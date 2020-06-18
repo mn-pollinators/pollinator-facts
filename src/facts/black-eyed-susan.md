@@ -2,7 +2,7 @@
 title: Black-eyed Susan
 image:
   src: ../images/black-eyed-susan.jpg
-  url: https://www.flickr.com/photos/stanzim
+  url: https://www.flickr.com/photos/stanzim/30985149411
   license: CC BY-NC 2.0
   creator: Stanley Zimny
   alt: Black-eyed Susans
