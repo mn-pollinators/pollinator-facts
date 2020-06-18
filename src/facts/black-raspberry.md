@@ -11,4 +11,4 @@ source:
   url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
 category: Plant
 ---
-Bumble and Miner bees can be important pollinators for raspberries (when their habitat needs are met).
+Bumble and Miner bees can be important pollinators for raspberries.
