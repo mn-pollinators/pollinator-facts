@@ -1,10 +1,10 @@
 ---
-title: Field or Pasture Thistle
+title: Field Thistle
 image:
   url: https://www.flickr.com/photos/tgpotterfield/14359215078
   license: CC by-NC-SA 2.0
   src: ../images/pasturethistle.jpg
-  alt: Field or Pasture Thistle
+  alt: Field Thistle
   creator: Tom Potterfield
 source:
   name: "Bees: An Identification and Native Plant Forage Guide"
