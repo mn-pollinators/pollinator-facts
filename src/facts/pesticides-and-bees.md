@@ -1,7 +1,7 @@
 ---
 title: Pesticides and Bees
 image:
-  license: CC by 2.0
+  license: CC BY 2.0
   creator: Andy Powell
   alt: Pesticides and Bees
   url: https://www.flickr.com/photos/andypowe11/3337915245
