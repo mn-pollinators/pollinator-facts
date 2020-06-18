@@ -2,7 +2,7 @@
 title: Field Thistle
 image:
   url: https://www.flickr.com/photos/tgpotterfield/14359215078
-  license: CC by-NC-SA 2.0
+  license: CC BY-NC-SA 2.0
   src: ../images/pasturethistle.jpg
   alt: Field Thistle
   creator: Tom Potterfield
