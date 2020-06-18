@@ -5,7 +5,7 @@ image:
   alt: Stiff-leaved Goldenrod
   creator: Andrew Cannizzaro
   license: CC by 2.0
-  url: https://www.flickr.com/photos/acryptozoo/21143130290/in/photolist-apEBD7-ydm529-owszVH-wHcALJ
+  url: https://www.flickr.com/photos/acryptozoo/21143130290
 source:
   url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
   name: "Bees: An Identification and Native Plant Forage Guide"
