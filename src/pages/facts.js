@@ -10,13 +10,26 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Img from "gatsby-image"
 import Typography from '@material-ui/core/Typography';
+import { makeStyles, Divider } from "@material-ui/core"
 
+  export const useStyles = makeStyles({
+  background: {
+  backgroundColor: '#ffd54f',
+  margin: '15px',
+  },
+  divider: {
+  backgroundColor: 'black',
+  paddingTop: '25px',
+  marginRight: '10px',
 
+  }
+  })
 const Facts = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
+  const classes = useStyles();
   return (
   <Layout>
     <SEO title="All Facts" />
@@ -28,10 +41,12 @@ const Facts = ({
           const { slug } = node.fields
           const { title, image } = node.frontmatter
           return (
-            <ListItem button component={GatsbyLink} to={slug} key={node.id}>
+
+            <ListItem className={classes.background}button component={GatsbyLink} to={slug} key={node.id}>
               <ListItemAvatar>
                 <Avatar variant="rounded" fixed={image.src.childImageSharp.fixed} component={Img} />
               </ListItemAvatar>
+              <Divider orientation="vertical" flexItem="true" className={classes.divider}/>
               <ListItemText primary={title} secondary={node.excerpt}/>
             </ListItem>
           )
