@@ -23,7 +23,6 @@ const useStyles = makeStyles({
   factCard: {
     width: '190px',
     margin: '5px',
-    backgroundColor: '#ffd54f'
   }
 });
 

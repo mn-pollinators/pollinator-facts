@@ -13,10 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, Divider } from "@material-ui/core"
 
   export const useStyles = makeStyles({
-  background: {
-  backgroundColor: '#ffd54f',
-  margin: '15px',
-  },
   divider: {
   backgroundColor: 'black',
   paddingTop: '25px',
@@ -42,7 +38,7 @@ const Facts = ({
           const { title, image } = node.frontmatter
           return (
 
-            <ListItem className={classes.background}button component={GatsbyLink} to={slug} key={node.id}>
+            <ListItem button component={GatsbyLink} to={slug} key={node.id}>
               <ListItemAvatar>
                 <Avatar variant="rounded" fixed={image.src.childImageSharp.fixed} component={Img} />
               </ListItemAvatar>
