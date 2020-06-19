@@ -1,8 +1,14 @@
 import React from 'react'
 import CMS from "netlify-cms-app"
 import LargeFactCard from "../components/large-fact-card"
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import injectStyle from './injectStyle';
+
+import Paper from '@material-ui/core/Paper';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 const factPageStyles = makeStyles({
   card: {
@@ -12,9 +18,29 @@ const factPageStyles = makeStyles({
   },
 });
 
+
+const citationStyles = makeStyles(theme => ({
+  paper: {
+    maxWidth: 520,
+    margin: '20px auto',
+  },
+  title: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  section1: {
+    marginBottom: theme.spacing(2),
+  },
+  section2: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
 const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
 
   const classes = factPageStyles();
+  const theme = useTheme();
+  const citationClasses = citationStyles(theme);
 
   const factImg = {
     src: {
@@ -40,6 +66,28 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
           factCategory={entry.getIn(['data','category'])}
           factHTML={entry.getIn(['data','body'])}
           />
+
+          <Paper raised className={citationClasses.paper}>
+            <MuiDialogTitle disableTypography className={citationClasses.title}>
+              <Typography variant="h6">About Fact</Typography>
+            </MuiDialogTitle>
+            <MuiDialogContent>
+            <div className={citationClasses.section1}>
+              <Typography gutterBottom>
+                Fact text adapted from: <a href={entry.getIn(['data','source','url'])}>{entry.getIn(['data','source','name'])}</a>
+              </Typography>
+            </div>
+            <Divider  />
+            <div className={citationClasses.section2}>
+              <Typography gutterBottom>
+                <a href={entry.getIn(['data','image','url'])}>{entry.getIn(['data','image','alt'])}</a> image by {entry.getIn(['data','image','creator'])}
+              </Typography>
+              <Typography gutterBottom>
+                Licensed under {entry.getIn(['data','image','license'])}
+              </Typography>
+            </div>
+            </MuiDialogContent>
+          </Paper>
     </>
   )
 }
