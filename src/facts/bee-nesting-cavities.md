@@ -2,10 +2,10 @@
 title: Cavity Nesting Bees
 image:
   src: ../images/nature-wood-animal-insect-art-carving-1088609-pxhere.com.jpg
-  creator: Andrei Zverev
+  creator: None
   alt: Cavity Nesting Bees
-  license: CC BY-NC 2.0
-  url: https://www.flickr.com/photos/azibiss/28735555852
+  license: CC0 1.0
+  url: https://pxhere.com/en/photo/1088609
 source:
   url: https://www.beelab.umn.edu/wild-bees/wild-bees-and-houses
   name: Wild Bee Nests
