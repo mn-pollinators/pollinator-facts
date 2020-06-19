@@ -1,7 +1,7 @@
 ---
 title: Cavity Nesting Bees
 image:
-  src: ../images/treecavity.jpg
+  src: ../images/nature-wood-animal-insect-art-carving-1088609-pxhere.com.jpg
   creator: Andrei Zverev
   alt: Cavity Nesting Bees
   license: CC BY-NC 2.0
