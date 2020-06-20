@@ -56,6 +56,11 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
     url: entry.getIn(['data','image','url'])
   }
 
+  const factSrc = {
+    name: entry.getIn(['data','source','name']),
+    url: entry.getIn(['data','source','url'])
+  }
+
   return (
     <>
           <LargeFactCard
@@ -74,7 +79,7 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
             <MuiDialogContent>
             <div className={citationClasses.section1}>
               <Typography gutterBottom>
-                Fact text adapted from: <a href={entry.getIn(['data','source','url'])}>{entry.getIn(['data','source','name'])}</a>
+                Fact text adapted from: <a href={factSrc.url}>{factSrc.name}</a>
               </Typography>
             </div>
             <Divider  />
