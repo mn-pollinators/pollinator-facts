@@ -6,9 +6,8 @@ import injectStyle from './injectStyle';
 
 import Paper from '@material-ui/core/Paper';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import CitationContainer from '../components/citation-container'
 
 const factPageStyles = makeStyles({
   card: {
@@ -27,13 +26,7 @@ const citationStyles = makeStyles(theme => ({
   title: {
     margin: 0,
     padding: theme.spacing(2),
-  },
-  section1: {
-    marginBottom: theme.spacing(2),
-  },
-  section2: {
-    marginTop: theme.spacing(2),
-  },
+  }
 }));
 
 const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
@@ -76,22 +69,7 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
             <MuiDialogTitle disableTypography className={citationClasses.title}>
               <Typography variant="h6">About Fact</Typography>
             </MuiDialogTitle>
-            <MuiDialogContent>
-            <div className={citationClasses.section1}>
-              <Typography gutterBottom>
-                Fact text adapted from: <a href={factSrc.url}>{factSrc.name}</a>
-              </Typography>
-            </div>
-            <Divider  />
-            <div className={citationClasses.section2}>
-              <Typography gutterBottom>
-                <a href={factImg.url}>{factImg.alt}</a> image by {factImg.creator}
-              </Typography>
-              <Typography gutterBottom>
-                Licensed under {factImg.license}
-              </Typography>
-            </div>
-            </MuiDialogContent>
+            <CitationContainer factSource={factSrc} factImage={factImg} />
           </Paper>
     </>
   )
