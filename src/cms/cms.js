@@ -48,12 +48,12 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
         fluid: {
           src: getAsset(entry.getIn(['data','image','src']))
         }
-      },
-      alt: entry.getIn(['data','image','alt']),
-      creator: entry.getIn(['data','image','creator']),
-      license: entry.getIn(['data','image','license']),
-      url: entry.getIn(['data','image','url'])
-    }
+      }
+    },
+    alt: entry.getIn(['data','image','alt']),
+    creator: entry.getIn(['data','image','creator']),
+    license: entry.getIn(['data','image','license']),
+    url: entry.getIn(['data','image','url'])
   }
 
   return (
@@ -80,10 +80,10 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
             <Divider  />
             <div className={citationClasses.section2}>
               <Typography gutterBottom>
-                <a href={entry.getIn(['data','image','url'])}>{entry.getIn(['data','image','alt'])}</a> image by {entry.getIn(['data','image','creator'])}
+                <a href={factImg.url}>{factImg.alt}</a> image by {factImg.creator}
               </Typography>
               <Typography gutterBottom>
-                Licensed under {entry.getIn(['data','image','license'])}
+                Licensed under {factImg.license}
               </Typography>
             </div>
             </MuiDialogContent>
