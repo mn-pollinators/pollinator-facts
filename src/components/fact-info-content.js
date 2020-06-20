@@ -14,7 +14,7 @@ const citationStyles = makeStyles(theme => ({
   },
 }));
 
-export default function CitationContainer({factSource, factImage}) {
+export default function FactInfoContent({factSource, factImage}) {
 
   const theme = useTheme();
   const citationClasses = citationStyles(theme);

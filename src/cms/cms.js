@@ -7,7 +7,7 @@ import injectStyle from './injectStyle';
 import Paper from '@material-ui/core/Paper';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
-import CitationContainer from '../components/citation-container'
+import FactInfoContent from '../components/fact-info-content'
 
 const factPageStyles = makeStyles({
   card: {
@@ -69,7 +69,7 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
             <MuiDialogTitle disableTypography className={citationClasses.title}>
               <Typography variant="h6">About Fact</Typography>
             </MuiDialogTitle>
-            <CitationContainer factSource={factSrc} factImage={factImg} />
+            <FactInfoContent factSource={factSrc} factImage={factImg} />
           </Paper>
     </>
   )

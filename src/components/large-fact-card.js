@@ -17,7 +17,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
 
-import CitationContainer from '../components/citation-container'
+import FactInfoContent from '../components/fact-info-content'
 
 const factCardStyles = makeStyles({
   media: {
@@ -136,7 +136,7 @@ function FactInfoDialog(props) {
             <CloseIcon />
           </IconButton>
         </MuiDialogTitle>
-        <CitationContainer factSource={factSource} factImage={factImage}/>
+        <FactInfoContent factSource={factSource} factImage={factImage}/>
       </Dialog>
     </div>
   );
