@@ -4,7 +4,7 @@ image:
   src: ../images/15120801615_9334187129_h.jpg
   alt: Meadow Blazingstar
   creator: USFWS Midwest Region
-  url: https://www.flickr.com/photos/usfwsmidwest/15120801615/in/album-72157629800905371/
+  url: https://www.flickr.com/photos/usfwsmidwest/15120801615
   license: CC BY 2.0
 source:
   url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
