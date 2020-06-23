@@ -5,11 +5,18 @@ import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from "@material-ui/core/styles"
+import ViewListIcon from '@material-ui/icons/ViewList';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 const useStyles = makeStyles({
   factCard: {
     width: '190px',
     margin: '10px',
+  },
+  toggleButtons: {
+    margin: '5px'
   }
 });
 
@@ -17,7 +24,20 @@ const GridFacts = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
   return (
     <Layout>
-      <SEO title="Grid Facts" />
+      <SEO title="Grid Facts"/>
+      <ToggleButtonGroup  exclusive className={classes.toggleButtons}>
+        <Link to="/facts">
+          <ToggleButton value="list" aria-label="list">
+              <ViewListIcon/>
+          </ToggleButton>
+        </Link>
+        <Link to="/grid-facts">
+          <ToggleButton value="module" aria-label="module">
+            <ViewModuleIcon/>
+          </ToggleButton>
+        </Link>
+      </ToggleButtonGroup>
+
       <Grid container flexWrap="wrap" direction="row" spacing={1} >
       {edges.map(({ node }) => (
             <SmallFactCard
