@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { GatsbyLink } from "gatsby-theme-material-ui"
@@ -47,6 +47,7 @@ const Facts = ({
           )
         })}
     </List>
+   <Link to="/grid-facts">Grid version</Link>
   </Layout>
   )
 }
