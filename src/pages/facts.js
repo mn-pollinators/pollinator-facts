@@ -6,42 +6,35 @@ import GridView from "../components/grid-view"
 import ListView from "../components/list-view"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from '@material-ui/core/Typography';
-import ViewListIcon from '@material-ui/icons/ViewList';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewListIcon from '@material-ui/icons/ViewList';
 
 
 const useStyles = makeStyles({
-  title: {
-    marginTop: 16
-  },
-  toggleButtons: {
-    margin: '5px'
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: 16
   }
 });
 
 const Facts = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
-  const [view, setView] = React.useState('grid');
-  const changeView = (event, nextView) => {
-    setView(nextView);
-  };
+  const [gridLayout, changeLayout] = React.useState(true);
+
   return (
     <Layout>
       <SEO title="All Facts"/>
-      <Typography variant="h4" component="h1" className={classes.title} >
-        Facts
-      </Typography>
-      <ToggleButtonGroup  exclusive className={classes.toggleButtons} onChange={changeView}>
-          <ToggleButton value="list" aria-label="list">
-              <ViewListIcon/>
-          </ToggleButton>
-          <ToggleButton value="grid" aria-label="grid">
-            <ViewModuleIcon/>
-          </ToggleButton>
-      </ToggleButtonGroup>
-      {view==="grid"? ( <GridView edges={edges} />) : ( <ListView edges={edges} /> )}
+      <div className={classes.header}>
+        <Typography variant="h4" component="h1">
+          Facts
+        </Typography>
+        <ToggleButton value="switchLayout" onChange={() => { changeLayout(!gridLayout); }} >
+          {gridLayout? ( <ViewListIcon/> ) : ( <ViewModuleIcon/> )}
+        </ToggleButton>
+      </div>
+      {gridLayout? ( <GridView edges={edges} />) : ( <ListView edges={edges} /> )}
     </Layout>
   )
 }
