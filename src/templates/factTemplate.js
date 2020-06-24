@@ -21,13 +21,13 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={fact.frontmatter.title} />
-      <LargeFactCard 
-        className={classes.card} 
-        factTitle={fact.frontmatter.title} 
-        factImage={fact.frontmatter.image} 
-        factSource={fact.frontmatter.source} 
-        factCategory={fact.frontmatter.category} 
-        factHTML={fact.html} 
+      <LargeFactCard
+        className={classes.card}
+        factTitle={fact.frontmatter.title}
+        factImage={fact.frontmatter.image}
+        factSource={fact.frontmatter.source}
+        factTags={fact.frontmatter.category}
+        factHTML={fact.html}
       />
     </Layout>
   )

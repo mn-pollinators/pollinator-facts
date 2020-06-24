@@ -18,6 +18,7 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
 import Divider from '@material-ui/core/Divider';
+import Tag from '../components/tag'
 
 const factCardStyles = makeStyles({
   media: {
@@ -33,7 +34,7 @@ const factCardStyles = makeStyles({
   }
 });
 
-export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factCategory}) {
+export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
 
   const classes = factCardStyles();
 
@@ -55,7 +56,6 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
   const handleDialogClose = () => {
     setDialogOpen(false);
   };
-
   return (
     <>
     <Card className={classes.root, className}>
@@ -67,7 +67,10 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        <Typography variant="overline" className={classes.overline}>{`${factCategory} fact`}</Typography>
+        <Tag className={classes.overline}
+        factTags={factTags}
+        />
+
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
         </Typography>
