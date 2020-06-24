@@ -2,8 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SmallFactCard from "../components/small-fact-card"
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from "@material-ui/core/styles"
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
@@ -18,34 +16,14 @@ import Avatar from '@material-ui/core/Avatar';
 import { GatsbyLink } from "gatsby-theme-material-ui"
 import Img from "gatsby-image"
 
+import GridView from "../components/grid-view"
 
 const useStyles = makeStyles({
-  factCard: {
-    width: '190px',
-    margin: '10px',
-  },
   toggleButtons: {
     margin: '5px'
   }
 });
 
-function GridView({ edges }) {
-  const classes = useStyles();
-  return (
-    <Grid container flexwrap="wrap" direction="row" spacing={1} >
-      {edges.map(({ node }) => (
-            <SmallFactCard
-              key={node.id}
-              className={classes.factCard}
-              slug={node.fields.slug}
-              title={node.frontmatter.title}
-              category={node.frontmatter.category}
-              image={node.frontmatter.image}
-            />
-          ))}
-    </Grid>
-  )
-}
 
 function ListView({ edges }) {
   return (
