@@ -1,83 +1,80 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { GatsbyLink } from "gatsby-theme-material-ui"
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import Img from "gatsby-image"
+import GridView from "../components/grid-view"
+import ListView from "../components/list-view"
+import { makeStyles } from "@material-ui/core/styles"
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import ViewListIcon from '@material-ui/icons/ViewList';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 
 const useStyles = makeStyles({
   title: {
     marginTop: 16
   },
+  toggleButtons: {
+    margin: '5px'
+  }
 });
 
-const Facts = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-
+const Facts = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
-
+  const [view, setView] = React.useState('grid');
+  const changeView = (event, nextView) => {
+    setView(nextView);
+  };
   return (
-  <Layout>
-    <SEO title="All Facts" />
-    <Typography variant="h4" component="h1" className={classes.title} >
-          Facts
-    </Typography>
-    <List component="nav">
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title, image } = node.frontmatter
-          return (
-            <ListItem button component={GatsbyLink} to={slug} key={node.id}>
-              <ListItemAvatar>
-                <Avatar variant="rounded" fixed={image.src.childImageSharp.fixed} component={Img} />
-              </ListItemAvatar>
-              <ListItemText primary={title} secondary={node.excerpt}/>
-            </ListItem>
-          )
-        })}
-    </List>
-   <Link to="/grid-facts">Grid version</Link>
-  </Layout>
+    <Layout>
+      <SEO title="All Facts"/>
+      <Typography variant="h4" component="h1" className={classes.title} >
+        Facts
+      </Typography>
+      <ToggleButtonGroup  exclusive className={classes.toggleButtons} onChange={changeView}>
+          <ToggleButton value="list" aria-label="list">
+              <ViewListIcon/>
+          </ToggleButton>
+          <ToggleButton value="grid" aria-label="grid">
+            <ViewModuleIcon/>
+          </ToggleButton>
+      </ToggleButtonGroup>
+      {view==="grid"? ( <GridView edges={edges} />) : ( <ListView edges={edges} /> )}
+    </Layout>
   )
 }
 
 export default Facts
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 50)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            image {
-              src {
-                  childImageSharp {
-                    fixed(width: 40, height: 40) {
-                      ...GatsbyImageSharpFixed_withWebp
-                    }
-                  }
+export const allFactsQuery = graphql`
+query {
+  allFacts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          category
+          image {
+            src {
+              childImageSharp {
+                listImage: fixed(width: 40, height: 40) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+                fixed(width: 190, height:150) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
               }
             }
+            alt
           }
         }
       }
     }
   }
-`
+}`
