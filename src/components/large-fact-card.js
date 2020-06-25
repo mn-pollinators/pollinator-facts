@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, withTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -30,8 +30,8 @@ const factCardStyles = makeStyles({
   body: {
    "& p": {
     margin: 0
-   }
-  }
+   },
+  },
 });
 
 export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
@@ -56,6 +56,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
   const handleDialogClose = () => {
     setDialogOpen(false);
   };
+
   return (
     <>
     <Card className={classes.root, className}>
@@ -67,9 +68,9 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        <Tag className={classes.overline}
-        factTags={factTags}
-        />
+        {factTags.map((factTag, index) => (
+          <Tag className={classes.text} key={index} tagLabel={factTag.name} />
+        ))}
 
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
@@ -92,11 +93,11 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
               </Button>
             }
           </Grid>
-            <Grid item>
-              <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
-                <InfoOutlinedIcon />
-              </IconButton>
-            </Grid>
+          <Grid item>
+            <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
+              <InfoOutlinedIcon />
+            </IconButton>
+          </Grid>
         </Grid>
       </CardActions>
     </Card>

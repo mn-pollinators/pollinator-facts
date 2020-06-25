@@ -6,25 +6,28 @@ import Chip from '@material-ui/core/Chip';
 
 const tagStyles = makeStyles({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "nowrap",
+    margin: '5px'
+  },
+  background: {
+    backgroundColor: '#D3D3D3'
   }
 });
 
-export default function Tags ({factTags}) {
+const handleClick = () => {
+};
+
+export default function Tags ({tagLabel}) {
 
   const classes = tagStyles();
   return (
-    <div className={classes.root}>
-    <Chip
-      size="medium"
-      label={factTags}
-      // onClick={handleClick}
-      color="secondary"
-
-    />
-  </div>
-
+      <Chip
+        className={classes.root, classes.background}
+        size="small"
+        label={tagLabel}
+        onClick={handleClick}
+      />
   )
 
 }
