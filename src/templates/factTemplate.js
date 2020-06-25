@@ -26,7 +26,7 @@ export default ({ data }) => {
         factTitle={fact.frontmatter.title}
         factImage={fact.frontmatter.image}
         factSource={fact.frontmatter.source}
-        factTags={fact.frontmatter.category}
+        factTags={fact.frontmatter.tags}
         factHTML={fact.html}
       />
     </Layout>
@@ -39,7 +39,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        category {
+        tags {
           name
         }
         image {

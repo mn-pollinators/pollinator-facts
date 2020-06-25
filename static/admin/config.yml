@@ -31,8 +31,8 @@ collections:
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL, widget: string }
-     - name: category
-       label: Category
+     - name: tags
+       label: Tags
        widget: list
        field: { name: name }
       - { name: body, label: Body, widget: markdown }
