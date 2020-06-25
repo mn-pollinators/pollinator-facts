@@ -1,8 +1,7 @@
-
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
-
+import { GatsbyLink } from "gatsby-theme-material-ui"
 
 const tagStyles = makeStyles({
   root: {
@@ -15,18 +14,15 @@ const tagStyles = makeStyles({
   }
 });
 
-const handleClick = () => {
-};
-
 export default function Tag({tagLabel}) {
-
   const classes = tagStyles();
   return (
       <Chip
         className={classes.root, classes.background}
         size="small"
         label={tagLabel}
-        onClick={handleClick}
+        component={GatsbyLink} 
+        to={`/tags/${tagLabel}`}
       />
   )
 
