@@ -19,7 +19,7 @@ collections:
       - name: image
         label: Fact Image
         widget: object
-        fields: 
+        fields:
           - { name: src, label: Image, widget: image }
           - { name: alt, label: Alt Text, widget: string }
           - { name: creator, label: Creator, widget: string }
@@ -28,8 +28,11 @@ collections:
       - name: source
         label: Fact Source
         widget: object
-        fields: 
+        fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL, widget: string }
-      - { name: category, label: Category }
+     - name: category
+       label: Category
+       widget: list
+       field: { name: name }
       - { name: body, label: Body, widget: markdown }

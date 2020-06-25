@@ -39,7 +39,9 @@ export const query = graphql`
       html
       frontmatter {
         title
-        category
+        category {
+          name
+        }
         image {
             src {
                 childImageSharp {
