@@ -1,6 +1,6 @@
 
 import React from "react"
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 
 
@@ -18,7 +18,7 @@ const tagStyles = makeStyles({
 const handleClick = () => {
 };
 
-export default function Tags ({tagLabel}) {
+export default function Tag({tagLabel}) {
 
   const classes = tagStyles();
   return (
