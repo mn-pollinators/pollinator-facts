@@ -8,30 +8,15 @@ import SmallFactCard from "../components/small-fact-card"
 export const useStyles = makeStyles({
   cards: {
     display: 'flex',
+    margin: '50px 0',
     overflowX: 'auto',
-    margin: '50px 0'
+    '@media screen and (min-width: 600px)': {
+      overflowX: 'hidden',
+    }
   },
   factCard: {
     minWidth: '190px',
     margin: '5px',
-  },
-  '@media screen and (min-width: 768px)': {
-    '@global': {
-      '*::-webkit-scrollbar': {
-        width: '100px'
-      },
-      '*::-webkit-scrollbar-track': {
-        boxShadow: 'inset 0 0 5px gray',
-        borderRadius: '10px'
-      },
-      '*::-webkit-scrollbar-thumb': {
-        background: '#4caf50',
-        borderRadius: '10px'
-      },
-      '*::-webkit-scrollbar-thumb:hover': {
-        background: 'green'
-      }
-    }
   }
 });
 
@@ -42,16 +27,6 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
       <SEO title="Home" />
 
       <section className={classes.cards}>
-        {edges.map(({ node }) => (
-          <SmallFactCard
-            key={node.id}
-            className={classes.factCard}
-            slug={node.fields.slug}
-            title={node.frontmatter.title}
-            category={node.frontmatter.category}
-            image={node.frontmatter.image}
-          />
-        ))}
         {edges.map(({ node }) => (
           <SmallFactCard
             key={node.id}
