@@ -47,9 +47,13 @@ module.exports = {
       options:{
         modulePath: `${__dirname}/src/cms/cms.js`,
       }
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    },
+    {
+      resolve: "gatsby-remark-related-posts",
+      options: {
+        posts_dir: `${__dirname}/src/facts`,
+        doc_lang: "en",
+      },
+    },
   ],
 }
