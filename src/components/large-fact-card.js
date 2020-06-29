@@ -68,7 +68,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
       />
       <CardContent>
         {factTags.map((factTag, index) => (
-          <Tag className={classes.text} key={index} tagLabel={factTag.name} />
+          <Tag key={index} tagLabel={factTag.name} />
         ))}
 
         <Typography gutterBottom variant="h5" component="h2">
@@ -82,7 +82,9 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
           dangerouslySetInnerHTML={{ __html: factHTML }}
         />
       </CardContent>
-
+      {factTags.map((factTag, index) => (
+          <Tag key={index} tagLabel={factTag.name} />
+        ))}
       <CardActions disableSpacing>
         <Grid justify="space-between" container alignItems="flex-end">
           <Grid item>
