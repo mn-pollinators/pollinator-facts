@@ -12,24 +12,31 @@ import Img from "gatsby-image"
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, Divider } from "@material-ui/core"
 
-  export const useStyles = makeStyles({
-  divider: {
-  backgroundColor: 'black',
-  paddingTop: '25px',
-  marginRight: '10px',
 
+
+export const useStyles = makeStyles({
+  title: {
+    marginTop: 16
+  },
+  divider: {
+    backgroundColor: 'black',
+    paddingTop: '25px',
+    marginRight: '10px'
   }
-  })
+})
+
 const Facts = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
+
   const classes = useStyles();
+
   return (
   <Layout>
     <SEO title="All Facts" />
-    <Typography variant="h4" component="h1">
+    <Typography variant="h4" component="h1" className={classes.title} >
           Facts
     </Typography>
     <List component="nav">

@@ -46,6 +46,7 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
   )
 }
 
+
 export default IndexPage
 
 export const homeQuery = graphql`
