@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from "../components/layout"
 import Img from "gatsby-image"
@@ -17,6 +17,7 @@ const useStyles = makeStyles({
 
 export default ({ data }) => {
   const fact = data.markdownRemark;
+  const relatedFactEdges = data.allMarkdownRemark.edges
   const classes = useStyles();
   return (
     <Layout>
@@ -29,6 +30,16 @@ export default ({ data }) => {
         factCategory={fact.frontmatter.category} 
         factHTML={fact.html} 
       />
+      <h2>Related Facts</h2>
+        {relatedFactEdges.map(({ node }) => {
+          const { slug } = node.fields
+          const { title } = node.frontmatter
+          return (
+            <li key={slug}>
+              <Link to={slug}>{title}</Link>
+            </li>
+          )
+        })}
     </Layout>
   )
 }
