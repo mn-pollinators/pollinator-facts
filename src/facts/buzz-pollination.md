@@ -11,4 +11,4 @@ source:
     url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
 category: behavior
 ---
-Buzz pollination or sonication is a technique where certain bees vibrate their bodies to shake a large amount of pollen out of flowers. Bees known to use sonication are bumble bees, mining bees, large carpenter bees, small sweat bees, sweat bees, and metallic green sweat bees. Buzz pollination is required for good production of many food plants, including tomato, blueberries, cranberries, eggplant and pepper.
+Buzz pollination or sonication is a technique where certain bees vibrate their bodies to shake a large amount of pollen out of flowers. Bees known to use sonication are bumble bees, mining bees, large carpenter bees, small sweat bees, sweat bees, and metallic green sweat bees. Buzz pollination is required for good production of many food plants, including tomato, blueberry, cranberry, eggplant, and pepper.
