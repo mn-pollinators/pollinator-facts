@@ -34,7 +34,7 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $relatedFactPaths: [String]) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -56,6 +56,18 @@ export const query = graphql`
         source {
           name
           url
+        }
+      }
+    }
+    allMarkdownRemark(filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
         }
       }
     }
