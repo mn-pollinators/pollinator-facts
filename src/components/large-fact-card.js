@@ -15,9 +15,9 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
-import Divider from '@material-ui/core/Divider';
+
+import FactInfoContent from '../components/fact-info-content'
 
 const factCardStyles = makeStyles({
   media: {
@@ -112,16 +112,7 @@ const dialogStyles = makeStyles(theme => ({
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
-  },
-  content: {
-    padding: theme.spacing(2)
-  },
-  section1: {
-    marginBottom: theme.spacing(2),
-  },
-  section2: {
-    marginTop: theme.spacing(2),
-  },
+  }
 }));
 
 
@@ -145,25 +136,7 @@ function FactInfoDialog(props) {
             <CloseIcon />
           </IconButton>
         </MuiDialogTitle>
-        <MuiDialogContent>
-        <div className={classes.section1}>
-          <Typography gutterBottom>
-            Fact text adapted from:&nbsp;
-            {factSource.map((source,index) => (
-              <span>{index ? ',  ' : ''}<a key={source.name + index} href={source?.url}>{source?.name}</a></span>
-            ))}
-          </Typography>
-        </div>
-        <Divider  />
-        <div className={classes.section2}>
-          <Typography gutterBottom>
-            <a href={factImage?.url}>{factImage?.alt}</a> image by {factImage?.creator}
-          </Typography>
-          <Typography gutterBottom>
-            Licensed under {factImage?.license}
-          </Typography>
-        </div>
-        </MuiDialogContent>
+        <FactInfoContent factSource={factSource} factImage={factImage}/>
       </Dialog>
     </div>
   );
