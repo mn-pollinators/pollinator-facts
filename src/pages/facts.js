@@ -52,6 +52,7 @@ query {
     edges {
       node {
         id
+        excerpt(pruneLength: 50)
         fields {
           slug
         }
