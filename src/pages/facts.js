@@ -16,12 +16,17 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     margin: 16
+  },
+  toggle: {
+    '@media screen and (max-width: 600px)' : {
+      display: 'none'
+    }
   }
 });
 
 const Facts = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
-  const [gridLayout, changeLayout] = React.useState(true);
+  const [listLayout, changeLayout] = React.useState(true);
 
   return (
     <Layout>
@@ -30,11 +35,11 @@ const Facts = ({data: { allFacts: { edges }}}) => {
         <Typography variant="h4" component="h1">
           Facts
         </Typography>
-        <ToggleButton value="switchLayout" onChange={() => { changeLayout(!gridLayout); }} >
-          {gridLayout? ( <ViewListIcon/> ) : ( <ViewModuleIcon/> )}
+        <ToggleButton className={classes.toggle} value="switchLayout" onChange={() => { changeLayout(!listLayout); }} >
+          {listLayout? ( <ViewModuleIcon/> ) :  ( <ViewListIcon/> )}
         </ToggleButton>
       </div>
-      {gridLayout? ( <GridView edges={edges} />) : ( <ListView edges={edges} /> )}
+      {listLayout? ( <ListView edges={edges} /> ) : ( <GridView edges={edges} />) }
     </Layout>
   )
 }
