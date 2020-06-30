@@ -28,9 +28,13 @@ const factCardStyles = makeStyles({
   },
   body: {
    "& p": {
-    margin: 0
+    margin: 0,
    },
   },
+
+  share: {
+  marginLeft: '230px',
+  }
 });
 
 export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
@@ -67,9 +71,6 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        {factTags.map((factTag, index) => (
-          <Tag key={index} tagLabel={factTag.name} />
-        ))}
 
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
@@ -82,14 +83,18 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
           dangerouslySetInnerHTML={{ __html: factHTML }}
         />
       </CardContent>
-      {factTags.map((factTag, index) => (
+
+        {factTags.map((factTag, index) => (
           <Tag key={index} tagLabel={factTag.name} />
         ))}
+
+
+
       <CardActions disableSpacing>
         <Grid justify="space-between" container alignItems="flex-end">
           <Grid item>
             {!isSSR && navigator.share &&
-              <Button color="primary" aria-label="share" onClick={shareClick}>
+              <Button className={classes.share} color="primary" aria-label="share" onClick={shareClick}>
                 Share
               </Button>
             }

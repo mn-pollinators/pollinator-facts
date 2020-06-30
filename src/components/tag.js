@@ -6,7 +6,7 @@ import { GatsbyLink } from "gatsby-theme-material-ui"
 const tagStyles = makeStyles({
   tag: {
     backgroundColor: '#D3D3D3',
-    margin: '5px'
+    marginLeft: '5px'
   }
 });
 
