@@ -11,6 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Img from "gatsby-image"
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Tag from '../components/tag'
 
 
 const useStyles = makeStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
 
 const Facts = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { distinct, edges },
   },
 }) => {
 
@@ -29,7 +30,15 @@ const Facts = ({
 
   return (
   <Layout>
-    <SEO title="All Facts" />
+    <SEO title="All Facts"/>
+    <Typography variant="h4" component="h1" className={classes.title} >
+          Browse
+      </Typography>
+      <List component="nav">
+        {distinct.map((tag, index) => (
+          <Tag key={index} tagLabel={tag} />
+        ))}
+      </List>
     <Typography variant="h4" component="h1" className={classes.title} >
           Facts
     </Typography>
@@ -56,6 +65,7 @@ export default Facts
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+      distinct(field: frontmatter___tags___name)
       edges {
         node {
           id
@@ -65,6 +75,9 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            tags {
+              name
+            }
             image {
               src {
                   childImageSharp {
