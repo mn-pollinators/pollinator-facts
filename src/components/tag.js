@@ -19,6 +19,7 @@ export default function Tag({tagLabel}) {
         label={tagLabel}
         component={GatsbyLink}
         to={`/tags/${tagLabel}`}
+        clickable={true}
       />
   )
 
