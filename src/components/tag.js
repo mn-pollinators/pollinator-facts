@@ -4,13 +4,9 @@ import Chip from '@material-ui/core/Chip';
 import { GatsbyLink } from "gatsby-theme-material-ui"
 
 const tagStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexWrap: "nowrap",
-    margin: '5px'
-  },
-  background: {
-    backgroundColor: '#D3D3D3'
+  tag: {
+    backgroundColor: '#D3D3D3',
+    marginLeft: '5px'
   }
 });
 
@@ -18,11 +14,12 @@ export default function Tag({tagLabel}) {
   const classes = tagStyles();
   return (
       <Chip
-        className={classes.root, classes.background}
+        className={classes.tag}
         size="small"
         label={tagLabel}
-        component={GatsbyLink} 
+        component={GatsbyLink}
         to={`/tags/${tagLabel}`}
+        clickable={true}
       />
   )
 

@@ -15,9 +15,8 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
 import CloseIcon from '@material-ui/icons/Close';
-import Divider from '@material-ui/core/Divider';
+import FactInfoContent from '../components/fact-info-content'
 import Tag from '../components/tag'
 
 const factCardStyles = makeStyles({
@@ -29,9 +28,13 @@ const factCardStyles = makeStyles({
   },
   body: {
    "& p": {
-    margin: 0
+    margin: 0,
    },
   },
+
+  share: {
+  marginLeft: '230px',
+  }
 });
 
 export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
@@ -68,9 +71,6 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        {factTags.map((factTag, index) => (
-          <Tag className={classes.text} key={index} tagLabel={factTag.name} />
-        ))}
 
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
@@ -84,11 +84,17 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         />
       </CardContent>
 
+        {factTags.map((factTag, index) => (
+          <Tag key={index} tagLabel={factTag.name} />
+        ))}
+
+
+
       <CardActions disableSpacing>
         <Grid justify="space-between" container alignItems="flex-end">
           <Grid item>
             {!isSSR && navigator.share &&
-              <Button color="primary" aria-label="share" onClick={shareClick}>
+              <Button className={classes.share} color="primary" aria-label="share" onClick={shareClick}>
                 Share
               </Button>
             }
@@ -116,16 +122,7 @@ const dialogStyles = makeStyles(theme => ({
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
-  },
-  content: {
-    padding: theme.spacing(2)
-  },
-  section1: {
-    marginBottom: theme.spacing(2),
-  },
-  section2: {
-    marginTop: theme.spacing(2),
-  },
+  }
 }));
 
 
@@ -149,22 +146,7 @@ function FactInfoDialog(props) {
             <CloseIcon />
           </IconButton>
         </MuiDialogTitle>
-        <MuiDialogContent>
-        <div className={classes.section1}>
-          <Typography gutterBottom>
-            Fact text adapted from: <a href={factSource?.url}>{factSource?.name}</a>
-          </Typography>
-        </div>
-        <Divider  />
-        <div className={classes.section2}>
-          <Typography gutterBottom>
-            <a href={factImage?.url}>{factImage?.alt}</a> image by {factImage?.creator}
-          </Typography>
-          <Typography gutterBottom>
-            Licensed under {factImage?.license}
-          </Typography>
-        </div>
-        </MuiDialogContent>
+        <FactInfoContent factSource={factSource} factImage={factImage}/>
       </Dialog>
     </div>
   );
