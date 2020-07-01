@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 	}
 });
 
-export default function SmallFactCard({className, slug, title, category, image}) {
+export default function SmallFactCard({className, slug, title, image}) {
     const classes = useStyles();
     return (
         <>
@@ -25,8 +25,7 @@ export default function SmallFactCard({className, slug, title, category, image})
                     alt={image.alt}
                 />
                 <CardContent>
-                    <Typography variant="overline"> {`${category} fact`} </Typography>
-                    <Typography gutterBottom variant="h5" component="h2"> {title} </Typography>
+                    <Typography gutterBottom variant="h6" component="h2"> {title} </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>

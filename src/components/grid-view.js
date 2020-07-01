@@ -20,7 +20,6 @@ export default function GridView({ edges }) {
               className={gridStyles.factCard}
               slug={node.fields.slug}
               title={node.frontmatter.title}
-              category={node.frontmatter.category}
               image={node.frontmatter.image}
             />
           ))}

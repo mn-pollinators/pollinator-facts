@@ -6,15 +6,18 @@ import GridView from "../components/grid-view"
 import ListView from "../components/list-view"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from '@material-ui/core/Typography';
-import ToggleButton from '@material-ui/lab/ToggleButton';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ViewListIcon from '@material-ui/icons/ViewList';
+import { IconButton } from "@material-ui/core"
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 
 const useStyles = makeStyles({
   header: {
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     margin: 16
   },
   toggle: {
@@ -35,9 +38,9 @@ const Facts = ({data: { allFacts: { edges }}}) => {
         <Typography variant="h4" component="h1">
           Facts
         </Typography>
-        <ToggleButton className={classes.toggle} value="switchLayout" onChange={() => { changeLayout(!listLayout); }} >
-          {listLayout? ( <ViewModuleIcon/> ) :  ( <ViewListIcon/> )}
-        </ToggleButton>
+        <IconButton className={classes.toggle} onClick={() => { changeLayout(!listLayout); }} >
+          {listLayout? (<Tooltip title="Grid View" aria-label="grid view"><ViewModuleIcon/></Tooltip>) : (<Tooltip title="List View" aria-label="list view"><ViewListIcon/></Tooltip>)}
+        </IconButton>
       </div>
       {listLayout? ( <ListView edges={edges} /> ) : ( <GridView edges={edges} />) }
     </Layout>
@@ -58,7 +61,6 @@ query {
         }
         frontmatter {
           title
-          category
           image {
             src {
               childImageSharp {
