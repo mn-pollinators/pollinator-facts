@@ -31,9 +31,18 @@ const factCardStyles = makeStyles({
     margin: 0,
    },
   },
+  visible: {
+    marginBottom: '10px',
+    '@media screen and (max-width: 600px)': {
+    display: 'none',
+    }
+  },
 
-  share: {
-  marginLeft: '230px',
+  hidden: {
+    display: 'none',
+    '@media screen and (max-width: 600px)': {
+    display: 'block',
+    }
   }
 });
 
@@ -62,7 +71,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
 
   return (
     <>
-    <Card className={classes.root, className}>
+      <Card className={classes.root, className}>
 
       <CardMedia
         className={classes.media}
@@ -84,22 +93,33 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         />
       </CardContent>
 
+      <div className={classes.hidden}>
         {factTags.map((factTag, index) => (
           <Tag key={index} tagLabel={factTag.name} />
+
         ))}
-
-
+        </div>
 
       <CardActions disableSpacing>
         <Grid justify="space-between" container alignItems="flex-end">
-          <Grid item>
-            {!isSSR && navigator.share &&
-              <Button className={classes.share} color="primary" aria-label="share" onClick={shareClick}>
-                Share
-              </Button>
+        <div className={classes.visible}>
+        <Grid item>
+        {factTags.map((factTag, index) => (
+          <Tag key={index} tagLabel={factTag.name} />
+
+        ))}
+
+        </Grid>
+        </div>
+        <Grid item>
+        {!isSSR && navigator.share &&
+              <IconButton aria-label="share" onClick={shareClick}>
+                <ShareIcon/>
+              </IconButton>
             }
-          </Grid>
+        </Grid>
           <Grid item>
+
             <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
               <InfoOutlinedIcon />
             </IconButton>
