@@ -11,4 +11,4 @@ source:
   name: Minnesota Zoo
 category: habitat
 ---
-Brightly colored purple coneflowers attract many pollinators, and they are also native to Minnesota.
+Brightly colored purple coneflowers attract many pollinators and are also native to Minnesota.
