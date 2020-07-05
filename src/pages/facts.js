@@ -10,7 +10,7 @@ import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import { IconButton } from "@material-ui/core"
 import Tooltip from '@material-ui/core/Tooltip';
-
+import { viewContext } from '../components/view-provider';
 
 
 const useStyles = makeStyles({
@@ -29,20 +29,25 @@ const useStyles = makeStyles({
 
 const Facts = ({data: { allFacts: { edges }}}) => {
   const classes = useStyles();
-  const [listLayout, changeLayout] = React.useState(true);
 
   return (
     <Layout>
-      <SEO title="All Facts"/>
-      <div className={classes.header}>
-        <Typography variant="h4" component="h1">
-          Facts
-        </Typography>
-        <IconButton className={classes.toggle} onClick={() => { changeLayout(!listLayout); }} >
-          {listLayout? (<Tooltip title="Grid View" aria-label="grid view"><ViewModuleIcon/></Tooltip>) : (<Tooltip title="List View" aria-label="list view"><ViewListIcon/></Tooltip>)}
-        </IconButton>
-      </div>
-      {listLayout? ( <ListView edges={edges} /> ) : ( <GridView edges={edges} />) }
+      <viewContext.Consumer>
+        {context => (
+          <React.Fragment>
+            <SEO title="All Facts"/>
+            <div className={classes.header}>
+              <Typography variant="h4" component="h1">
+                Facts
+              </Typography>
+              <IconButton className={classes.toggle} onClick={() => { context.changeLayout() }} >
+                {context.listLayout? (<Tooltip title="Grid View" aria-label="grid view"><ViewModuleIcon/></Tooltip>) : (<Tooltip title="List View" aria-label="list view"><ViewListIcon/></Tooltip>)}
+              </IconButton>
+            </div>
+            {context.listLayout? ( <ListView edges={edges} /> ) : ( <GridView edges={edges} />) }
+          </React.Fragment>
+        )}
+      </viewContext.Consumer>
     </Layout>
   )
 }
