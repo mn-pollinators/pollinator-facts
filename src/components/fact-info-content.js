@@ -23,7 +23,10 @@ export default function FactInfoContent({factSource, factImage}) {
     <MuiDialogContent>
       <div className={citationClasses.section1}>
         <Typography gutterBottom>
-          Fact text adapted from: <a href={factSource?.url}>{factSource?.name}</a>
+          Fact text adapted from:&nbsp;
+          {factSource.map((source,index) => (
+            <span>{index ? ',  ' : ''}<a key={source.name + index} href={source?.url}>{source?.name}</a></span>
+          ))}
         </Typography>
       </div>
       <Divider  />
