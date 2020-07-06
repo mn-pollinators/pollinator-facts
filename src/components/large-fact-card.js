@@ -31,17 +31,17 @@ const factCardStyles = makeStyles({
     margin: 0,
    },
   },
-  visible: {
+  inlineTags: {
     marginBottom: '10px',
+    overflowX: 'auto',
     '@media screen and (max-width: 600px)': {
-    display: 'none',
+      display: 'none',
     }
   },
-
-  hidden: {
-    display: 'none',
-    '@media screen and (max-width: 600px)': {
-    display: 'block',
+  separatedlineTags: {
+    padding: '8px',
+    '@media screen and (min-width: 600px)': {
+      display: 'none',
     }
   }
 });
@@ -93,37 +93,37 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         />
       </CardContent>
 
-      <div className={classes.hidden}>
-        {factTags.map((factTag, index) => (
-          <Tag key={index} tagLabel={factTag.name} />
-
-        ))}
-        </div>
+      <Grid justify="space-between" container alignItems="flex-end" className={classes.separatedlineTags}>
+        <Grid item>
+          {factTags.map((factTag, index) => (
+            <Tag key={index} tagLabel={factTag.name} />
+          ))}
+        </Grid>
+      </Grid>
 
       <CardActions disableSpacing>
-        <Grid justify="space-between" container alignItems="flex-end">
-        <div className={classes.visible}>
-        <Grid item>
-        {factTags.map((factTag, index) => (
-          <Tag key={index} tagLabel={factTag.name} />
+        <Grid justify="space-between" container alignItems="flex-end" wrap="nowrap">
 
-        ))}
+          <Grid item className={classes.inlineTags}>
+            {factTags.map((factTag, index) => (
+              <Tag key={index} tagLabel={factTag.name} />
+            ))}
+          </Grid>
 
-        </Grid>
-        </div>
-        <Grid item>
-        {!isSSR && navigator.share &&
-              <IconButton aria-label="share" onClick={shareClick}>
-                <ShareIcon/>
-              </IconButton>
-            }
-        </Grid>
           <Grid item>
+          {!isSSR && navigator.share &&
+                <IconButton aria-label="share" onClick={shareClick}>
+                  <ShareIcon/>
+                </IconButton>
+              }
+          </Grid>
 
+          <Grid item>
             <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
               <InfoOutlinedIcon />
             </IconButton>
           </Grid>
+
         </Grid>
       </CardActions>
     </Card>
