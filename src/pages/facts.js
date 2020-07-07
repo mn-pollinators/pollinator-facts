@@ -40,7 +40,7 @@ const Facts = ({data: { allFacts: { edges }}}) => {
               <Typography variant="h4" component="h1">
                 Facts
               </Typography>
-              <IconButton className={classes.toggle} onClick={() => { context.changeLayout() }} >
+              <IconButton className={context.listLayout? (classes.toggle) : (null)} onClick={() => { context.changeLayout() }} >
                 {context.listLayout? (<Tooltip title="Grid View" aria-label="grid view"><ViewModuleIcon/></Tooltip>) : (<Tooltip title="List View" aria-label="list view"><ViewListIcon/></Tooltip>)}
               </IconButton>
             </div>
