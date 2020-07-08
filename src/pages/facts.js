@@ -34,7 +34,7 @@ query {
           image {
             src {
               childImageSharp {
-                listImage: fixed(width: 40, height: 40) {
+                listImage: fixed(width: 40, height: 40, quality: 70) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
                 fixed(width: 190, height:150) {
