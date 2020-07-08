@@ -37,7 +37,7 @@ query {
                 listImage: fixed(width: 40, height: 40, quality: 70) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
-                fixed(width: 190, height:150) {
+                fixed(width: 190, height: 150, quality: 70) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
