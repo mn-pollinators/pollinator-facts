@@ -29,7 +29,7 @@ export default function HorizontalFactCard({ factTitle, factSlug, factImage, fac
                 />
 
                 <CardContent>
-                    <Typography component="h6" variant="h6">
+                    <Typography component="h3" variant="h6">
                         {factTitle}
                     </Typography>
                     <Typography>
