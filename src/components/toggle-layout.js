@@ -14,7 +14,7 @@ const useStyles = makeStyles({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      margin: 8
+      margin: 16
     },
     toggle: {
       '@media screen and (max-width: 600px)' : {
