@@ -6,7 +6,7 @@ import SmallFactCard from "../components/small-fact-card"
 const useStyles = makeStyles({
   factCard: {
     width: '190px',
-    margin: '10px',
+    margin: '8px',
   }
 });
 
