@@ -1,18 +1,20 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from "../components/layout"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
 import LargeFactCard from "../components/large-fact-card"
+import HorizontalFactCard from "../components/horizontal-fact-card";
 
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 520,
-    margin: 'auto',
     marginTop: 32,
   },
+  pageWidth: {
+    maxWidth: 520,
+    margin: 'auto'
+  }
 });
 
 export default ({ data }) => {
@@ -22,24 +24,28 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={fact.frontmatter.title} />
-      <LargeFactCard 
-        className={classes.card} 
-        factTitle={fact.frontmatter.title} 
-        factImage={fact.frontmatter.image} 
-        factSource={fact.frontmatter.source} 
-        factCategory={fact.frontmatter.category} 
-        factHTML={fact.html} 
-      />
-      <h2>Related Facts</h2>
-        {relatedFactEdges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
+      <div className={classes.pageWidth}>
+        <LargeFactCard 
+          className={classes.card} 
+          factTitle={fact.frontmatter.title} 
+          factImage={fact.frontmatter.image} 
+          factSource={fact.frontmatter.source} 
+          factCategory={fact.frontmatter.category} 
+          factHTML={fact.html} 
+        />
+        <h2>Related Facts</h2>
+        {relatedFactEdges.map(({ node }, index) => {
           return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
+            <HorizontalFactCard
+              key={index}
+              factTitle={node.frontmatter.title}
+              factSlug={node.fields.slug} 
+              factImage={node.frontmatter.image} 
+              factExcerpt={node.excerpt}
+            />
           )
         })}
+      </div>
     </Layout>
   )
 }
@@ -73,11 +79,22 @@ export const query = graphql`
     allMarkdownRemark(filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
       edges {
         node {
+          excerpt(pruneLength: 50)
           fields {
             slug
           }
           frontmatter {
             title
+            image {
+              src {
+                childImageSharp {
+                  fixed(width: 100, height: 100) {
+                    ...GatsbyImageSharpFixed_withWebp
+                  }
+                }
+              }
+              alt
+            }
           }
         }
       }
