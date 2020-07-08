@@ -14,7 +14,7 @@ const useStyles = makeStyles({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      margin: 16
+      margin: 8
     },
     toggle: {
       '@media screen and (max-width: 600px)' : {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 
 export default function ToggleLayout({ title, factsData })  {
     const classes = useStyles();
-  
+
     return (
         <viewContext.Consumer>
           {context => (

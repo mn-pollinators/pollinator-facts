@@ -110,7 +110,7 @@ const Layout = ({ children }) => {
         </div>
       </SwipeableDrawer>
 
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <main>{children}</main>
       </Container>
     </>
