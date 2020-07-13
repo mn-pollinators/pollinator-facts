@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
+import gatsbyIcon from "../images/gatsby-icon.png"
 
 export const useStyles = makeStyles({
   cards: {
@@ -17,6 +18,14 @@ export const useStyles = makeStyles({
   factCard: {
     minWidth: '190px',
     margin: '5px',
+  },
+  heroImage: {
+    backgroundImage: 'url(${gatsbyIcon})',
+    height: '50%',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    position: 'relative',
   }
 });
 
@@ -25,7 +34,12 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="Home" />
-
+      <div className={classes.heroImage}>
+        <div class="heroText">
+          <h1>Welcome to Pollinator Facts</h1>
+          <p>We have so many amazing bee facts. You simply won't believe your eyes. But before we get into the facts, don't forget to hit that like and subscribe button and click the bell.</p>
+        </div>
+      </div>
       <section className={classes.cards}>
         {edges.map(({ node }) => (
           <SmallFactCard
