@@ -9,10 +9,7 @@ const Facts = ({data: { allFacts: { edges }}}) => {
   return (
     <Layout>
       <SEO title="All Facts"/>
-      <ToggleLayout
-      title="Facts"
-      factsData={edges}     
-      />
+      <ToggleLayout title="Facts" factsData={edges} />
     </Layout>
   )
 }
