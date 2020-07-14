@@ -27,7 +27,7 @@ collections:
           - { name: url, label: Source URL, widget: string }
       - name: source
         label: Fact Source
-        widget: object
+        widget: list
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL, widget: string }

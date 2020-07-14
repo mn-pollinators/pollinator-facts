@@ -7,8 +7,8 @@ image:
   creator: Stanley Zimny
   alt: Black-eyed Susans
 source:
-  name: "Bees: An Identification and Native Plant Forage Guide"
-  url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
+  - name: "Bees: An Identification and Native Plant Forage Guide"
+    url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
 tags:
   - name: habitat
 ---

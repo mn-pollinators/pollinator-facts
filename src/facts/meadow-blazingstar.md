@@ -7,8 +7,8 @@ image:
   url: https://www.flickr.com/photos/usfwsmidwest/15120801615
   license: CC BY 2.0
 source:
-  url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
-  name: Minnesota Zoo
+  - name: Minnesota Zoo
+    url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
 tags:
   - name: habitat
 ---
