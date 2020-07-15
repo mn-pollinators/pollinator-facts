@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import LargeFactCard from "../components/large-fact-card"
-import HorizontalFactCard from "../components/horizontal-fact-card";
-
+import ListView from "../components/list-view"
 
 const useStyles = makeStyles({
   card: {
@@ -34,17 +33,7 @@ export default ({ data }) => {
           factHTML={fact.html} 
         />
         <h2>Related Facts</h2>
-        {relatedFactEdges.map(({ node }, index) => {
-          return (
-            <HorizontalFactCard
-              key={index}
-              factTitle={node.frontmatter.title}
-              factSlug={node.fields.slug} 
-              factImage={node.frontmatter.image} 
-              factExcerpt={node.excerpt}
-            />
-          )
-        })}
+        <ListView listData={relatedFactEdges} />
       </div>
     </Layout>
   )
@@ -79,6 +68,7 @@ export const query = graphql`
     allMarkdownRemark(limit: 3, filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
       edges {
         node {
+          id
           excerpt(pruneLength: 50)
           fields {
             slug
@@ -88,7 +78,7 @@ export const query = graphql`
             image {
               src {
                 childImageSharp {
-                  fixed(width: 100, height: 100) {
+                  listImage: fixed(width: 40, height: 40, quality: 70) {
                     ...GatsbyImageSharpFixed_withWebp
                   }
                 }
