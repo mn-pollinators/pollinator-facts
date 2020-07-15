@@ -76,7 +76,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
+    allMarkdownRemark(limit: 3, filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
       edges {
         node {
           excerpt(pruneLength: 50)
