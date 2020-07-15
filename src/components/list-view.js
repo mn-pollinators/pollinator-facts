@@ -7,9 +7,9 @@ import Avatar from '@material-ui/core/Avatar';
 import { GatsbyLink } from "gatsby-theme-material-ui"
 import Img from "gatsby-image"
 
-export default function ListView({ listData }) {
+export default function ListView({ listData, listStyles }) {
   return (
-    <List component="nav">
+    <List component="nav" className={listStyles}>
         {listData.map(({ node }) => {
           const { slug } = node.fields
           const { title, image } = node.frontmatter

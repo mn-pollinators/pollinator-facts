@@ -1,10 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import LargeFactCard from "../components/large-fact-card"
 import ListView from "../components/list-view"
+
 
 const useStyles = makeStyles({
   card: {
@@ -13,6 +15,12 @@ const useStyles = makeStyles({
   pageWidth: {
     maxWidth: 520,
     margin: 'auto'
+  },
+  relatedFactsTitle: {
+    marginTop: '16px'
+  },
+  relatedFactList: {
+    paddingBottom: '16px'
   }
 });
 
@@ -32,8 +40,8 @@ export default ({ data }) => {
           factCategory={fact.frontmatter.category} 
           factHTML={fact.html} 
         />
-        <h2>Related Facts</h2>
-        <ListView listData={relatedFactEdges} />
+        <Typography variant="h6" component="h3" className={classes.relatedFactsTitle} > Related Facts </Typography>
+        <ListView listData={relatedFactEdges} listStyles={classes.relatedFactList}/>
       </div>
     </Layout>
   )
