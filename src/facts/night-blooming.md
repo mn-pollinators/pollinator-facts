@@ -7,8 +7,8 @@ image:
   license: CC BY-SA 4.0
   src: ../images/night-blooming_cereus-crop.jpg
 source:
-  url: https://www.gardeningknowhow.com/garden-how-to/beneficial/bats-as-pollinators.htm
-  name: Gardening Know How
+  - name: Gardening Know How
+    url: https://www.gardeningknowhow.com/garden-how-to/beneficial/bats-as-pollinators.htm
 category: habitat
 ---
 Night-blooming flowers like Evening Primrose, Datura, and Four o’clocks will support pollinators that are active at night, like moths and bats.
