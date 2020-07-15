@@ -32,7 +32,9 @@ const factCardStyles = makeStyles({
    },
   },
   inlineTags: {
-    marginBottom: '8px',
+    marginBottom: '12px',
+    marginLeft: '5px',
+    marginTop: '5px',
   },
   buttons: {
     width: 'auto',
