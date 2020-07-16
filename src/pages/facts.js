@@ -3,13 +3,15 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ToggleLayout from '../components/toggle-layout'
+import TagArray from '../components/tag-array'
 
-const Facts = ({data: { allFacts: { edges }}}) => {
-
+const Facts = ({data: { allFacts: { distinct, edges }}}) => {
   return (
     <Layout>
       <SEO title="All Facts"/>
+      <TagArray allTags={distinct} />
       <ToggleLayout title="Facts" factsData={edges} />
+      {/* allPosts.filter(post => searchTags.every(st => post.tags.includes(st)))*/}
     </Layout>
   )
 }
@@ -19,6 +21,7 @@ export default Facts
 export const allFactsQuery = graphql`
 query {
   allFacts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+    distinct(field: frontmatter___tags___name)
     edges {
       node {
         id
@@ -28,6 +31,9 @@ query {
         }
         frontmatter {
           title
+          tags {
+            name
+          }
           image {
             src {
               childImageSharp {
