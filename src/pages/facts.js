@@ -3,19 +3,20 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ToggleLayout from '../components/toggle-layout'
-import TagArray from '../components/tag-array'
+import TagFilter from "../components/tag-filter"
 
 const Facts = ({data: { allFacts: { distinct, edges }}}) => {
+  const fakeSelectedTags = ["example", "plant"];
   return (
     <Layout>
       <SEO title="All Facts"/>
-      <TagArray allTags={distinct} />
-      <ToggleLayout title="Facts" factsData={edges} />
-      {/* allPosts.filter(post => searchTags.every(st => post.tags.includes(st)))*/}
-    </Layout>
+      <TagFilter allTags={distinct} />
+      <ToggleLayout title="Facts" factsData={edges.filter(edge => 
+        fakeSelectedTags.every(oneFakeTag =>
+          edge.node.frontmatter.tags.some(index => index.name === oneFakeTag)))} />
+    </Layout>                                
   )
 }
-
 export default Facts
 
 export const allFactsQuery = graphql`
