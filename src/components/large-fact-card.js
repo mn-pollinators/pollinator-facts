@@ -1,12 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import { makeStyles, useTheme, withTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import { Button, IconButton } from 'gatsby-theme-material-ui';
+import { IconButton } from 'gatsby-theme-material-ui';
 import Typography from '@material-ui/core/Typography';
 import ShareIcon from '@material-ui/icons/Share';
 import Grid from '@material-ui/core/Grid';

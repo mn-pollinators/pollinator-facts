@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from "../components/layout"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
 import LargeFactCard from "../components/large-fact-card"
 
