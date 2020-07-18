@@ -11,5 +11,6 @@ source:
     url: https://www.beelab.umn.edu/wild-bees/wild-bees-and-houses
 tags: 
   - name: habitat
+  - name: example2
 ---
 Thirty to fourty percent of bees find cavities to live in, such as hollow branches, stems, or dead trees. Inside, they use mud to create chambers for their eggs. Leave hollow stems of various heights from flowers and grasses in your garden to attract bees.
