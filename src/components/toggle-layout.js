@@ -1,12 +1,12 @@
 import React from "react"
 import GridView from "../components/grid-view"
 import ListView from "../components/list-view"
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import ViewListIcon from '@material-ui/icons/ViewList';
-import Tooltip from '@material-ui/core/Tooltip';
-import { viewContext } from '../components/view-provider'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import ViewModuleIcon from '@material-ui/icons/ViewModule'
+import ViewListIcon from '@material-ui/icons/ViewList'
+import Tooltip from '@material-ui/core/Tooltip'
+import { Context } from './provider'
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles({
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 export default function ToggleLayout({ title, factsData, titleStyle})  {
     const classes = useStyles();
     return (
-        <viewContext.Consumer>
+        <Context.Consumer>
           {context => (
             <React.Fragment>
               <div className={classes.header}>
@@ -40,6 +40,6 @@ export default function ToggleLayout({ title, factsData, titleStyle})  {
               {context.listLayout? ( <ListView listData={factsData} /> ) : ( <GridView gridData={factsData} />) }
             </React.Fragment>
           )}
-        </viewContext.Consumer>
+        </Context.Consumer>
     )
 }
