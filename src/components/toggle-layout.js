@@ -23,15 +23,15 @@ const useStyles = makeStyles({
     }
   });
 
-export default function ToggleLayout({ title, factsData })  {
+export default function ToggleLayout({ title, factsData, titleStyle})  {
     const classes = useStyles();
-
+    console.log(titleStyle);
     return (
         <viewContext.Consumer>
           {context => (
             <React.Fragment>
               <div className={classes.header}>
-                <Typography variant="h4" component="h1">
+                <Typography variant="h4" component="h1" className={titleStyle}>
                   {title}
                 </Typography>
                 <IconButton className={context.listLayout? (classes.toggle) : (null)} onClick={() => { context.changeLayout() }} >

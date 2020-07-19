@@ -61,7 +61,7 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
           factTitle={entry.getIn(['data','title'])}
           factImage={factImg}
           factSource={entry.getIn(['data','source'])}
-          factCategory={entry.getIn(['data','category'])}
+          factTags={entry.getIn(['data','tags'])}
           factHTML={entry.getIn(['data','body'])}
           />
 
