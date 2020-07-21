@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function ToggleLayout({ title, factsData, titleStyle})  {
+export default function ToggleLayout({ title, filterTags, factsData, titleStyle})  {
     const classes = useStyles();
     return (
         <Context.Consumer>
@@ -37,6 +37,7 @@ export default function ToggleLayout({ title, factsData, titleStyle})  {
                   {context.listLayout? (<Tooltip title="Grid View" aria-label="grid view"><ViewModuleIcon/></Tooltip>) : (<Tooltip title="List View" aria-label="list view"><ViewListIcon/></Tooltip>)}
                 </IconButton>
               </div>
+              {filterTags}
               {context.listLayout? ( <ListView listData={factsData} /> ) : ( <GridView gridData={factsData} />) }
             </React.Fragment>
           )}

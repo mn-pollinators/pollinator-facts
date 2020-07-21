@@ -10,12 +10,12 @@ const Facts = ({ data: { allFacts: { distinct, edges } } }) => {
   return (
     <Layout>
       <SEO title="All Facts" />
-      <TagFilter title="Browse" allTags={distinct} />
       <Context.Consumer>
         {context => (
-          <ToggleLayout title="Facts" factsData={edges.filter(edge =>
-            context.selectedTags.every(selectedTag =>
-              edge.node.frontmatter.tags.includes(selectedTag)))} />
+          <ToggleLayout
+            title="Facts"
+            filterTags={<TagFilter allTags={distinct} />}
+            factsData={edges.filter(edge => context.selectedTags.every(selectedTag => edge.node.frontmatter.tags.includes(selectedTag)))} />
         )}
       </Context.Consumer>
     </Layout>

@@ -7,7 +7,7 @@ import { Context } from './provider';
 
 
 const useStyles = makeStyles({
-  alignElements: {
+  list: {
     margin: '16px',
   },
   chips: {
@@ -29,8 +29,7 @@ export default function TagFilter({ title, allTags }) {
     <Context.Consumer>
       {context => (
         <React.Fragment>
-          <Typography variant="h5" component="h5" className={classes.alignElements}>{title}</Typography>
-          <List component="nav"className={classes.alignElements}>  
+          <List component="nav" className={classes.list}>  
             {allTags.map((singleTag, index) => (
               <Chip
                 size="small"
