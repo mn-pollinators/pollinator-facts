@@ -32,17 +32,14 @@ const factCardStyles = makeStyles({
    },
   },
   inlineTags: {
-    marginBottom: '10px',
-    overflowX: 'auto',
-    '@media screen and (max-width: 600px)': {
-      display: 'none',
+    marginBottom: '12px',
+    '& > *' : {
+      marginLeft: '5px',
+      marginTop: '5px',
     }
   },
-  separatedlineTags: {
-    padding: '8px',
-    '@media screen and (min-width: 600px)': {
-      display: 'none',
-    }
+  buttons: {
+    width: 'auto',
   }
 });
 
@@ -93,15 +90,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         />
       </CardContent>
 
-      <Grid justify="space-between" container alignItems="flex-end" className={classes.separatedlineTags}>
-        <Grid item>
-          {factTags.map((factTag, index) => (
-            <Tag key={index} tagLabel={factTag} />
-          ))}
-        </Grid>
-      </Grid>
-
-      <CardActions disableSpacing>
+      <CardActions>
         <Grid justify="space-between" container alignItems="flex-end" wrap="nowrap">
 
           <Grid item className={classes.inlineTags}>
@@ -110,18 +99,18 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
             ))}
           </Grid>
 
-          <Grid item>
+          <Grid item container wrap="nowrap" className={classes.buttons}>
+
           {!isSSR && navigator.share &&
                 <IconButton aria-label="share" onClick={shareClick}>
                   <ShareIcon/>
                 </IconButton>
               }
-          </Grid>
 
-          <Grid item>
             <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
               <InfoOutlinedIcon />
             </IconButton>
+
           </Grid>
 
         </Grid>
