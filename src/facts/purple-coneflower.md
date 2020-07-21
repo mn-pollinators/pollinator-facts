@@ -9,9 +9,6 @@ image:
 source:
   - name: Minnesota Zoo
     url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
-tags:
-  - name: habitat
-  - name: example
-  - name: example2
+tags: ["habitat"]
 ---
 Brightly colored purple coneflowers attract many pollinators and are also native to Minnesota.

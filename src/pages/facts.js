@@ -15,7 +15,7 @@ const Facts = ({ data: { allFacts: { distinct, edges } } }) => {
         {context => (
           <ToggleLayout title="Facts" factsData={edges.filter(edge =>
             context.selectedTags.every(selectedTag =>
-              edge.node.frontmatter.tags.some(index => index.name === selectedTag)))} />
+              edge.node.frontmatter.tags.includes(selectedTag)))} />
         )}
       </Context.Consumer>
     </Layout>
@@ -26,7 +26,7 @@ export default Facts
 export const allFactsQuery = graphql`
 query {
   allFacts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
-    distinct(field: frontmatter___tags___name)
+    distinct(field: frontmatter___tags)
     edges {
       node {
         id
@@ -36,9 +36,7 @@ query {
         }
         frontmatter {
           title
-          tags {
-            name
-          }
+          tags
           image {
             src {
               childImageSharp {

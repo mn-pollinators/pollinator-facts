@@ -28,10 +28,10 @@ export default ({ pageContext, data }) => {
 
 export const tagQuery = graphql`
 query($tag: String!) {
-  allMarkdownRemark(filter: {frontmatter: {tags: {elemMatch: {name: {in: [$tag] }}}}}) {
-		totalCount
-    edges {
-			node {
+  allMarkdownRemark(filter: {frontmatter: {tags: {in: [$tag] }}}) {
+	  totalCount
+		edges {
+		  node {
 				id
 				excerpt(pruneLength: 50)
 				fields {

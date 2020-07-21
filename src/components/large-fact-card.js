@@ -96,7 +96,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
       <Grid justify="space-between" container alignItems="flex-end" className={classes.separatedlineTags}>
         <Grid item>
           {factTags.map((factTag, index) => (
-            <Tag key={index} tagLabel={factTag.name} />
+            <Tag key={index} tagLabel={factTag} />
           ))}
         </Grid>
       </Grid>
@@ -106,7 +106,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
 
           <Grid item className={classes.inlineTags}>
             {factTags.map((factTag, index) => (
-              <Tag key={index} tagLabel={factTag.name} />
+              <Tag key={index} tagLabel={factTag} />
             ))}
           </Grid>
 
