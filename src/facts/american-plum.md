@@ -1,5 +1,5 @@
 ---
-title: "American Plum "
+title: "American Plum"
 image:
   license: CC BY 2.0
   creator: Homer Edward Price
