@@ -1,7 +1,6 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 import { Context } from './provider';
 
@@ -29,7 +28,7 @@ export default function TagFilter({ title, allTags }) {
     <Context.Consumer>
       {context => (
         <React.Fragment>
-          <List component="nav" className={classes.list}>  
+          <List component="nav" className={classes.list}>
             {allTags.map((singleTag, index) => (
               <Chip
                 size="small"
