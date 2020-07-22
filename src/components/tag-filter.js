@@ -17,13 +17,7 @@ const useStyles = makeStyles({
 
 export default function TagFilter({ title, allTags }) {
   const classes = useStyles();
-  function changeStyle(singleTag, selectedTags) {
-    return {
-      backgroundColor:
-        selectedTags.indexOf(singleTag) === -1 ? '#e0e0e0' : '#4CAF50',
-    };
-  }
-
+  
   return (
     <Context.Consumer>
       {context => (
@@ -33,10 +27,10 @@ export default function TagFilter({ title, allTags }) {
               <Chip
                 size="small"
                 key={index}
+                color={context.selectedTags.indexOf(singleTag) === -1? '': 'primary'}
                 label={singleTag}
                 clickable={true}
                 onClick={() => context.handleClick(singleTag)}
-                style={changeStyle(singleTag, context.selectedTags)}
                 className={classes.chips}
               />
             ))}
