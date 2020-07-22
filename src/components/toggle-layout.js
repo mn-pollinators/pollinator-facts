@@ -25,7 +25,6 @@ const useStyles = makeStyles({
 
 export default function ToggleLayout({ title, factsData, titleStyle})  {
     const classes = useStyles();
-    console.log(titleStyle);
     return (
         <viewContext.Consumer>
           {context => (
