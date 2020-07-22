@@ -26,22 +26,24 @@ const useStyles = makeStyles({
 
 export default ({ data }) => {
   const fact = data.markdownRemark;
-  const relatedFactEdges = data.allMarkdownRemark.edges
+  const relatedFactPaths = data.markdownRemark.fields.relatedFileAbsolutePaths.slice(0,3);
+  const relatedFactEdges = data.relatedFacts.edges;
+  const relatedFacts = relatedFactPaths.map(path => relatedFactEdges.find(({node}) => node.fileAbsolutePath === path));
   const classes = useStyles();
   return (
     <Layout>
       <SEO title={fact.frontmatter.title} />
       <div className={classes.pageWidth}>
-        <LargeFactCard 
-          className={classes.card} 
-          factTitle={fact.frontmatter.title} 
-          factImage={fact.frontmatter.image} 
-          factSource={fact.frontmatter.source} 
-          factCategory={fact.frontmatter.category} 
-          factHTML={fact.html} 
+        <LargeFactCard
+          className={classes.card}
+          factTitle={fact.frontmatter.title}
+          factImage={fact.frontmatter.image}
+          factSource={fact.frontmatter.source}
+          factCategory={fact.frontmatter.category}
+          factHTML={fact.html}
         />
         <Typography variant="h6" component="h3" className={classes.relatedFactsTitle} > Related Facts </Typography>
-        <ListView listData={relatedFactEdges} listStyles={classes.relatedFactList}/>
+        <ListView listData={relatedFacts} listStyles={classes.relatedFactList}/>
       </div>
     </Layout>
   )
@@ -72,10 +74,14 @@ export const query = graphql`
           url
         }
       }
+      fields {
+        relatedFileAbsolutePaths
+      }
     }
-    allMarkdownRemark(limit: 3, filter: {fileAbsolutePath: {in: $relatedFactPaths }}, sort: {fields: [fields___relatedFileAbsolutePaths]}) {
+    relatedFacts: allMarkdownRemark(filter: {fileAbsolutePath: {in: $relatedFactPaths }}) {
       edges {
         node {
+          fileAbsolutePath
           id
           excerpt(pruneLength: 50)
           fields {
