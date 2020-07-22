@@ -14,12 +14,15 @@ const useStyles = makeStyles({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      margin: 16
+      margin: '16px 4px 0px 4px'
     },
     toggle: {
       '@media screen and (max-width: 600px)' : {
         display: 'none'
       }
+    },
+    grid: {
+      paddingTop: '8px'
     }
   });
 
@@ -30,7 +33,7 @@ export default function ToggleLayout({ title, filterTags, factsData, titleStyle}
           {context => (
             <React.Fragment>
               <div className={classes.header}>
-                <Typography variant="h4" component="h1" className={titleStyle}>
+                <Typography variant="h4" component="h2" className={titleStyle}>
                   {title}
                 </Typography>
                 <IconButton className={context.listLayout? (classes.toggle) : (null)} onClick={() => { context.changeLayout() }} >
@@ -38,7 +41,7 @@ export default function ToggleLayout({ title, filterTags, factsData, titleStyle}
                 </IconButton>
               </div>
               {filterTags}
-              {context.listLayout? ( <ListView listData={factsData} /> ) : ( <GridView gridData={factsData} />) }
+              {context.listLayout? ( <ListView listData={factsData} /> ) : ( <GridView className={classes.grid} gridData={factsData} />) }
             </React.Fragment>
           )}
         </Context.Consumer>

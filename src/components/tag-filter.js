@@ -7,7 +7,7 @@ import { Context } from './provider';
 
 const useStyles = makeStyles({
   list: {
-    margin: '16px',
+    margin: '4px',
   },
   chips: {
     marginRight: '4px',
