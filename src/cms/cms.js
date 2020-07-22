@@ -29,7 +29,7 @@ const citationStyles = makeStyles(theme => ({
   }
 }));
 
-const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
+const FactPagePreview = ({ entry, widgetsFor, getAsset }) => {
 
   const classes = factPageStyles();
   const theme = useTheme();
@@ -49,10 +49,12 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
     url: entry.getIn(['data','image','url'])
   }
 
-  const factSrc = {
-    name: entry.getIn(['data','source','name']),
-    url: entry.getIn(['data','source','url'])
-  }
+  const factSrc = widgetsFor('source').map(source => {
+    return ({
+      name: source.getIn(['data','name']),
+      url: source.getIn(['data','url'])
+    })
+  })
 
   return (
     <>
@@ -60,7 +62,7 @@ const FactPagePreview = ({ entry, widgetFor, getAsset }) => {
           className={classes.card}
           factTitle={entry.getIn(['data','title'])}
           factImage={factImg}
-          factSource={entry.getIn(['data','source'])}
+          factSource={factSrc}
           factTags={entry.getIn(['data','tags'])}
           factHTML={entry.getIn(['data','body'])}
           />
