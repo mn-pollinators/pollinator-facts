@@ -39,10 +39,10 @@ export default ({ data }) => {
           factTitle={fact.frontmatter.title}
           factImage={fact.frontmatter.image}
           factSource={fact.frontmatter.source}
-          factCategory={fact.frontmatter.category}
+          factTags={fact.frontmatter.tags}
           factHTML={fact.html}
         />
-        <Typography variant="h6" component="h3" className={classes.relatedFactsTitle} > Related Facts </Typography>
+        <Typography variant="h6" component="h3" className={classes.relatedFactsTitle}>Related Facts</Typography>
         <ListView listData={relatedFacts} listStyles={classes.relatedFactList}/>
       </div>
     </Layout>
@@ -55,7 +55,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        category
+        tags
         image {
             src {
                 childImageSharp {

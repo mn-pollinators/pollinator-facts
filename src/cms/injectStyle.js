@@ -3,7 +3,7 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { jssPreset, StylesProvider } from '@material-ui/core/styles';
 import { create } from 'jss';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import theme from '../gatsby-theme-material-ui-top-layout/theme'
 
 const injectStyle = WrappedComponent => {
