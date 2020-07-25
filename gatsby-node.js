@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       tagsGroup: allMarkdownRemark {
-        group(field: frontmatter___tags___name) {
+        group(field: frontmatter___tags) {
           fieldValue
         }
       }

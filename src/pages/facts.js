@@ -3,22 +3,30 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ToggleLayout from '../components/toggle-layout'
+import TagFilter from "../components/tag-filter"
+import { Context } from '../components/provider'
 
-const Facts = ({data: { allFacts: { edges }}}) => {
-
+const Facts = ({ data: { allFacts: { distinct, edges } } }) => {
   return (
     <Layout>
-      <SEO title="All Facts"/>
-      <ToggleLayout title="Facts" factsData={edges} />
+      <SEO title="All Facts" />
+      <Context.Consumer>
+        {context => (
+          <ToggleLayout
+            title="Facts"
+            filterTags={<TagFilter allTags={distinct} />}
+            factsData={edges.filter(edge => context.selectedTags.every(selectedTag => edge.node.frontmatter.tags.includes(selectedTag)))} />
+        )}
+      </Context.Consumer>
     </Layout>
   )
 }
-
 export default Facts
 
 export const allFactsQuery = graphql`
 query {
   allFacts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+    distinct(field: frontmatter___tags)
     edges {
       node {
         id
@@ -28,6 +36,7 @@ query {
         }
         frontmatter {
           title
+          tags
           image {
             src {
               childImageSharp {

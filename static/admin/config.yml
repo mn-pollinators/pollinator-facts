@@ -34,5 +34,4 @@ collections:
       - name: tags
         label: Tags
         widget: list
-        field: { name: name }
       - { name: body, label: Body, widget: markdown }
