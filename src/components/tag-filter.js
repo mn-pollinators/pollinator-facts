@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 export default function TagFilter({ title, allTags }) {
   const classes = useStyles();
-  
+
   return (
     <Context.Consumer>
       {context => (
@@ -27,7 +27,7 @@ export default function TagFilter({ title, allTags }) {
               <Chip
                 size="small"
                 key={index}
-                color={context.selectedTags.indexOf(singleTag) === -1? '': 'primary'}
+                color={context.selectedTags.indexOf(singleTag) === -1? 'default': 'primary'}
                 label={singleTag}
                 clickable={true}
                 onClick={() => context.handleClick(singleTag)}

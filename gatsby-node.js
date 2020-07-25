@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             fields {
+              relatedFileAbsolutePaths
               slug
             }
           }
@@ -46,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.fields.slug,
+        relatedFactPaths: node.fields.relatedFileAbsolutePaths.slice(0,3)
       },
     })
   })
