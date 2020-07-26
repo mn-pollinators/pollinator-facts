@@ -56,14 +56,12 @@ const FactPagePreview = ({ entry, widgetsFor, getAsset }) => {
     })
   })
 
-  const factTags = widgetsFor('tags').map(source => {
+  const factTags = widgetsFor('tags').map(tag => {
     return (
-     source.getIn(['data']))
+     tag.getIn(['data']))
   })
 
   return (
-
-
     <>
           <LargeFactCard
           className={classes.card}

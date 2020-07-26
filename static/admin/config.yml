@@ -29,9 +29,10 @@ collections:
         label: Fact Source
         widget: list
         fields:
-          - { name: name, label: Name, widget: string }
-          - { name: url, label: URL, widget: string }
+          - { name: name, label: Name, widget: string, default: "" }
+          - { name: url, label: URL, widget: string, default: "" }
       - name: tags
         label: Tags
         widget: list
+        default: [""]
       - { name: body, label: Body, widget: markdown }
