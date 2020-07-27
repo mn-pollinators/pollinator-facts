@@ -28,6 +28,7 @@ collections:
       - name: source
         label: Fact Source
         widget: list
+        collapsed: false
         fields:
           - { name: name, label: Name, widget: string, default: "" }
           - { name: url, label: URL, widget: string, default: "" }
