@@ -4,7 +4,7 @@ image:
   alt: Polyester Bee on Crocus tommasinianus
   license: CC BY-NC-SA 2.0
   creator: Tom Potterfield
-  url: www.flickr.com/photos/tgpotterfield/13356521924
+  url: https://www.flickr.com/photos/tgpotterfield/13356521924
   src: ../images/polyester-bee.jpg
 source:
   - name: "Bees: An Identification and Native Plant Forage Guide"
