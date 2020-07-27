@@ -35,5 +35,5 @@ collections:
       - name: tags
         label: Tags
         widget: list
-        default: [""]
+        default: []
       - { name: body, label: Body, widget: markdown }
