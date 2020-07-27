@@ -11,7 +11,6 @@ source:
     url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
 tags:
   - bees
-  - ""
 ---
 
 
