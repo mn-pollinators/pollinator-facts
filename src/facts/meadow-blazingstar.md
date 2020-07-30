@@ -9,6 +9,6 @@ image:
 source:
   - name: Minnesota Zoo
     url: https://mnzoo.org/conservation/act-wildlife/plant-pollinators/
-tags: ["habitat"]
+tags: ["habitat", "flowers"]
 ---
 In late summer and early fall, Meadow Blazingstar is the preferred plant for Monarch butterflies. Before migrating to Mexico for the winter, Monarch butterflies load up on energy by using the plant’s rich nectar.
