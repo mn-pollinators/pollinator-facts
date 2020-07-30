@@ -11,6 +11,18 @@ module.exports = {
         name: `facts`,
         path: `${__dirname}/src/facts`,
       },
+      // options: {
+      //   name: `art`,
+      //   path: `${__dirname}/node_modules/@mn-pollinators/assets/art`,
+      // },
+    },
+    `@mn-pollinators/assets`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `art`,
+        path: `${__dirname}/node_modules/@mn-pollinators/assets/art`,
+      },
     },
     `gatsby-transformer-remark`,
     {

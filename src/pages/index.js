@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
-import gatsbyIcon from "../images/gatsby-icon.png"
 
 export const useStyles = makeStyles({
   cards: {
@@ -20,7 +19,7 @@ export const useStyles = makeStyles({
     margin: '5px',
   },
   heroImage: {
-    backgroundImage: 'url(${gatsbyIcon})',
+    backgroundImage: 'solidago',
     height: '50%',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -60,11 +59,19 @@ const IndexPage = ({data: { allFacts: { edges }}}) => {
   )
 }
 
+//const imageData = data.solidago.childImageSharp.fluid
 
 export default IndexPage
 
 export const homeQuery = graphql`
 query {
+  solidago: file(relativePath: { eq: "node_modules/@mn-pollinators/assets/art/flowers"}){
+    childImageSharp{
+      fluid(maxWidth: 400, maxHeight: 250){
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
   allFacts: allMarkdownRemark {
     edges {
       node {
