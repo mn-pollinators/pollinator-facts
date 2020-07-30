@@ -11,6 +11,6 @@ source:
     url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
 tags:
   - bees
-  - habitat
+  - behavior
 ---
 As implied by their name, Leafcutter bees cut petals and leaves to gather materials to build their nests. They build their nests both above ground, in pithy plant stems and dead trees, and below ground.
