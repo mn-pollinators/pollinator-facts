@@ -36,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: 250,
+  },
+  bottomBar: {
+    backgroundColor: '#4CAF50',
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-around',
+    paddingTop: '4px' 
   }
 }));
 
@@ -112,6 +121,15 @@ const Layout = ({ children }) => {
       <Container maxWidth="lg">
         <main>{children}</main>
       </Container>
+      <div className={classes.bottomBar}>
+          <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
+          </a>
+          {/* This is just to see what it would look like if it had two items */}
+          <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
+          </a>
+      </div>
     </>
   )
 }

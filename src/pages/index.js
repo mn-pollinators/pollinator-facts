@@ -12,10 +12,6 @@ const IndexPage = () => (
     <p>It is currently a work in progress. This homepage is temporary.</p>
     <p><Link to="/facts">View the list of facts</Link></p>
 
-    <a href="https://www.netlify.com">
-      <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
-    </a>
-
   </Layout>
 )
 
