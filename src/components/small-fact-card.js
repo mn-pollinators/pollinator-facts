@@ -16,19 +16,17 @@ const useStyles = makeStyles({
 export default function SmallFactCard({className, slug, title, image}) {
     const classes = useStyles();
     return (
-        <>
-        <Card className={className}>
-            <CardActionArea className={classes.actionArea} to={slug}>
-                <CardMedia
-                    component={Img}
-                    fixed={image.src.childImageSharp.fixed}
-                    alt={image.alt}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h6" component="h2"> {title} </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
-        </>
+      <Card className={className}>
+          <CardActionArea className={classes.actionArea} to={slug}>
+              <CardMedia
+                  component={Img}
+                  fixed={image.src.childImageSharp.fixed}
+                  alt={image.alt}
+              />
+              <CardContent>
+                  <Typography gutterBottom variant="h6" component="h2"> {title} </Typography>
+              </CardContent>
+          </CardActionArea>
+      </Card>
     )
 }

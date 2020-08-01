@@ -17,19 +17,29 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      factRemark: allMarkdownRemark {
         edges {
           node {
             fields {
+              relatedFileAbsolutePaths
               slug
             }
           }
         }
       }
+      tagsGroup: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  // Extract facts and tags data from query
+  const facts = result.data.factRemark.edges
+  const tags = result.data.tagsGroup.group
+
+  facts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/factTemplate.js`),
@@ -37,6 +47,17 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.fields.slug,
+        relatedFactPaths: node.fields.relatedFileAbsolutePaths.slice(0,3)
+      },
+    })
+  })
+
+  tags.forEach( tag => {
+    createPage({
+      path: `/tags/${(tag.fieldValue)}`,
+      component: path.resolve(`./src/templates/tagTemplate.js`),
+      context: {
+        tag: tag.fieldValue
       },
     })
   })

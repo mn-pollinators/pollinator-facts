@@ -4,5 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-import React from "react"
-export { wrapRootElement } from "./gatsby-browser"
+import Provider from './src/components/provider'
+
+export const wrapRootElement = Provider;

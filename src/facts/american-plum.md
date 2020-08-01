@@ -1,5 +1,5 @@
 ---
-title: "American Plum "
+title: "American Plum"
 image:
   license: CC BY 2.0
   creator: Homer Edward Price
@@ -9,8 +9,6 @@ image:
 source:
   - name: "Bees: An Identification and Native Plant Forage Guide"
     url: https://www.pollinatorsnativeplants.com/bees-an-identification-and-native-plant-forage-guide.html
-category: habitat
+tags: ["habitat"]
 ---
-
-
 American plum attracts a variety of bees including bumble, cuckoo, cellophane, mining, and small sweat bees. With its highly fragrant flowers, the American Plum offers both pollen and nectar to visitors.

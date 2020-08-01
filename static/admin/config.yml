@@ -28,8 +28,12 @@ collections:
       - name: source
         label: Fact Source
         widget: list
+        collapsed: false
         fields:
-          - { name: name, label: Name, widget: string }
-          - { name: url, label: URL, widget: string }
-      - { name: category, label: Category }
+          - { name: name, label: Name, widget: string, default: "" }
+          - { name: url, label: URL, widget: string, default: "" }
+      - name: tags
+        label: Tags
+        widget: list
+        default: []
       - { name: body, label: Body, widget: markdown }

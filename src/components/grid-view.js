@@ -10,10 +10,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GridView({ gridData }) {
+export default function GridView({ gridData, className }) {
   const gridStyles = useStyles();
   return (
-    <Grid container flexwrap="wrap" direction="row" spacing={1} >
+    <Grid className={className} container flexwrap="wrap" direction="row" spacing={1} >
       {gridData.map(({ node }) => (
             <SmallFactCard
               key={node.id}

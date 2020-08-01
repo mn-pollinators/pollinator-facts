@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import { Button, IconButton } from 'gatsby-theme-material-ui';
+import { IconButton } from 'gatsby-theme-material-ui';
 import Typography from '@material-ui/core/Typography';
 import ShareIcon from '@material-ui/icons/Share';
 import Grid from '@material-ui/core/Grid';
@@ -16,8 +16,8 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
-
 import FactInfoContent from '../components/fact-info-content'
+import Tag from '../components/tag'
 
 const factCardStyles = makeStyles({
   media: {
@@ -28,12 +28,22 @@ const factCardStyles = makeStyles({
   },
   body: {
    "& p": {
-    margin: 0
-   }
+    margin: 0,
+   },
+  },
+  inlineTags: {
+    marginBottom: '12px',
+    '& > *' : {
+      marginLeft: '5px',
+      marginTop: '5px',
+    }
+  },
+  buttons: {
+    width: 'auto',
   }
 });
 
-export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factCategory}) {
+export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
 
   const classes = factCardStyles();
 
@@ -58,7 +68,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
 
   return (
     <>
-    <Card className={classes.root, className}>
+      <Card className={classes.root, className}>
 
       <CardMedia
         className={classes.media}
@@ -67,7 +77,7 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         alt={factImage.alt}
       />
       <CardContent>
-        <Typography variant="overline" className={classes.overline}>{`${factCategory} fact`}</Typography>
+
         <Typography gutterBottom variant="h5" component="h2">
           {factTitle}
         </Typography>
@@ -80,20 +90,29 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
         />
       </CardContent>
 
-      <CardActions disableSpacing>
-        <Grid justify="space-between" container alignItems="flex-end">
-          <Grid item>
-            {!isSSR && navigator.share &&
-              <Button color="primary" aria-label="share" onClick={shareClick}>
-                Share
-              </Button>
-            }
+      <CardActions>
+        <Grid justify="space-between" container alignItems="flex-end" wrap="nowrap">
+
+          <Grid item className={classes.inlineTags}>
+            {factTags.map((factTag, index) => (
+              <Tag key={index} tagLabel={factTag} />
+            ))}
           </Grid>
-            <Grid item>
-              <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
-                <InfoOutlinedIcon />
-              </IconButton>
-            </Grid>
+
+          <Grid item container wrap="nowrap" className={classes.buttons}>
+
+          {!isSSR && navigator.share &&
+                <IconButton aria-label="share" onClick={shareClick}>
+                  <ShareIcon/>
+                </IconButton>
+              }
+
+            <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
+              <InfoOutlinedIcon />
+            </IconButton>
+
+          </Grid>
+
         </Grid>
       </CardActions>
     </Card>
