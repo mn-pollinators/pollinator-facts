@@ -26,6 +26,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
+import BottomBar from '../components/bottom-bar'
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -38,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
   },
   bottomBar: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: 'lightgrey',
     position: 'fixed',
-    bottom: 0,
     width: '100%',
+    bottom: 0,
     display: 'flex',
-    justifyContent: 'space-around',
-    paddingTop: '4px' 
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '4px 12px'
   }
 }));
 
@@ -121,15 +123,7 @@ const Layout = ({ children }) => {
       <Container maxWidth="lg">
         <main>{children}</main>
       </Container>
-      <div className={classes.bottomBar}>
-          <a href="https://www.netlify.com">
-            <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
-          </a>
-          {/* This is just to see what it would look like if it had two items */}
-          <a href="https://www.netlify.com">
-            <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
-          </a>
-      </div>
+      <BottomBar className={classes.bottomBar} />
     </>
   )
 }
