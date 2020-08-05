@@ -26,7 +26,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
-import BottomBar from '../components/bottom-bar'
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -37,16 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: 250,
-  },
-  bottomBar: {
-    backgroundColor: 'lightgrey',
-    position: 'fixed',
-    width: '100%',
-    bottom: 0,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '4px 12px'
   }
 }));
 
@@ -79,10 +68,10 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton 
-            edge="start" 
-            className={classes.menuButton} 
-            color="inherit" 
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
             aria-label="menu"
             onClick={toggleDrawer(true)}
           >
@@ -98,7 +87,7 @@ const Layout = ({ children }) => {
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        //disableBackdropTransition={!iOS} 
+        //disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
       >
         <div
@@ -123,7 +112,6 @@ const Layout = ({ children }) => {
       <Container maxWidth="lg">
         <main>{children}</main>
       </Container>
-      <BottomBar className={classes.bottomBar} />
     </>
   )
 }
