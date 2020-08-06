@@ -1,13 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
-import Card from "@material-ui/core/Card"
-import CardMedia from "@material-ui/core/CardMedia"
 import Typography from '@material-ui/core/Typography';
-import Img from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
 
 export const useStyles = makeStyles({
@@ -26,12 +23,18 @@ export const useStyles = makeStyles({
   heroImage: {
     height: '400px',
     width: '100%',
-    marginTop: '30px',
+    marginTop: '20px',
     backgroundPosition: 'top',
     backgroundRepeat: 'repeat-y',
     backgroundSize: 'cover',
-    position: 'relative',
-    filter: 'blur(8px)',
+    position: 'static',
+    filter: 'blur(3px) opacity(70%)',
+  },
+  heroText: {
+    height: '400px',
+    maxWidth: '800px',
+    position: 'absolute',
+    zIndex: '1',
   },
   heroTopText: {
     padding: '50px',
@@ -41,6 +44,7 @@ export const useStyles = makeStyles({
   },
   heroBottomText: {
     padding: '50px',
+    paddingTop: '0px',
     '@media screen and (max-width: 600px)': {
       fontSize: '1rem'
     }
@@ -52,25 +56,19 @@ const IndexPage = ({data: { allFacts: { edges }, hill }}) => {
   return (
     <Layout>
       <SEO title="Home" />
+      <div className= {classes.heroText}>
+        <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
+        <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
+          to like, subscribe and hit that bell icon to never miss an upload.
+        </Typography>
+      </div>
       <BackgroundImage
-          //Tag="section"
           className={classes.heroImage}
           fluid={hill.childImageSharp.fluid}
           backgroundColor={`#040e18`}
         >
-          <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
-          <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
-            to like, subscribe and hit that bell icon to never miss an upload.
-          </Typography>
-        </BackgroundImage>
-      {/* <Card>
-        <CardMedia
-        component={Img}
-        fluid={hill.childImageSharp.fluid}
-        alt="Hill Image"
-        />
+      </BackgroundImage>
 
-      </Card> */}
       <section className={classes.cards}>
         {edges.map(({ node }) => (
           <SmallFactCard
@@ -91,8 +89,6 @@ const IndexPage = ({data: { allFacts: { edges }, hill }}) => {
     </Layout>
   )
 }
-
-//const imageData = data.solidago.childImageSharp.fluid
 
 export default IndexPage
 
