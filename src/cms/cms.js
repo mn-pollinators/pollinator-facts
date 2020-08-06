@@ -39,47 +39,47 @@ const FactPagePreview = ({ entry, widgetsFor, getAsset }) => {
     src: {
       childImageSharp: {
         fluid: {
-          src: getAsset(entry.getIn(['data','image','src']))
+          src: getAsset(entry.getIn(['data', 'image', 'src']))
         }
       }
     },
-    alt: entry.getIn(['data','image','alt']),
-    creator: entry.getIn(['data','image','creator']),
-    license: entry.getIn(['data','image','license']),
-    url: entry.getIn(['data','image','url'])
+    alt: entry.getIn(['data', 'image', 'alt']),
+    creator: entry.getIn(['data', 'image', 'creator']),
+    license: entry.getIn(['data', 'image', 'license']),
+    url: entry.getIn(['data', 'image', 'url'])
   }
 
   const factSrc = widgetsFor('source').map(source => {
     return ({
-      name: source.getIn(['data','name']),
-      url: source.getIn(['data','url'])
+      name: source.getIn(['data', 'name']),
+      url: source.getIn(['data', 'url'])
     })
   })
 
   const factTags = widgetsFor('tags').map(source => {
     return (
-     source.getIn(['data']))
+      source.getIn(['data']))
   })
 
   return (
 
 
     <>
-          <LargeFactCard
-          className={classes.card}
-          factTitle={entry.getIn(['data','title'])}
-          factImage={factImg}
-          factSource={factSrc}
-          factTags={factTags}
-          factHTML={entry.getIn(['data','body'])}
-          />
+      <LargeFactCard
+        className={classes.card}
+        factTitle={entry.getIn(['data', 'title'])}
+        factImage={factImg}
+        factSource={factSrc}
+        factTags={factTags}
+        factHTML={entry.getIn(['data', 'body'])}
+      />
 
-          <Paper raised className={citationClasses.paper}>
-            <MuiDialogTitle disableTypography className={citationClasses.title}>
-              <Typography variant="h6">About Fact</Typography>
-            </MuiDialogTitle>
-            <FactInfoContent factSource={factSrc} factImage={factImg} />
-          </Paper>
+      <Paper raised className={citationClasses.paper}>
+        <MuiDialogTitle disableTypography className={citationClasses.title}>
+          <Typography variant="h6">About Fact</Typography>
+        </MuiDialogTitle>
+        <FactInfoContent factSource={factSrc} factImage={factImg} />
+      </Paper>
     </>
   )
 }

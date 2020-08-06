@@ -6,24 +6,24 @@ import { makeStyles } from '@material-ui/core/styles';
 import ToggleLayout from '../components/toggle-layout'
 
 export default ({ pageContext, data }) => {
-	const { tag } = pageContext
-	const useStyles = makeStyles({
-		title: {
-			marginTop: 16
-		},
-		capitalize: {
-			textTransform: "capitalize"
-		}
-	});
+  const { tag } = pageContext
+  const useStyles = makeStyles({
+    title: {
+      marginTop: 16
+    },
+    capitalize: {
+      textTransform: "capitalize"
+    }
+  });
 
-	const { edges } = data.allMarkdownRemark
-	const classes = useStyles();
-	return (
-		<Layout>
-			<SEO title={tag} />
-			<ToggleLayout title={`${tag} facts`} factsData={edges} titleStyle={classes.capitalize} />
-		</Layout>
-	)
+  const { edges } = data.allMarkdownRemark
+  const classes = useStyles();
+  return (
+    <Layout>
+      <SEO title={tag} />
+      <ToggleLayout title={`${tag} facts`} factsData={edges} titleStyle={classes.capitalize} />
+    </Layout>
+  )
 }
 
 export const tagQuery = graphql`

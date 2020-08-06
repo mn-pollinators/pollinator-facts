@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
-	return (
-		<StaticQuery
-			query={graphql`
+  return (
+    <StaticQuery
+      query={graphql`
 				query {
 					enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
 						childImageSharp {
@@ -35,16 +35,16 @@ export default function Footer() {
 					}
 				}
 			`}
-			render={data => (
-				<div  className={classes.footer}>
+      render={data => (
+        <div className={classes.footer}>
           <Container maxWidth="lg" className={classes.container}>
             <Img title="ENRTF Logo" alt="ENRTF Logo" fixed={data.enrtfLogo.childImageSharp.fixed} />
             <a href="https://www.netlify.com">
               <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
             </a>
           </Container>
-				</div>
-			)}
-		/>
-	);
+        </div>
+      )}
+    />
+  );
 }
