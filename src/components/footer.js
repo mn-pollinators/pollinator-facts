@@ -7,11 +7,9 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.action.disabledBackground,
-    position: 'fixed',
-    width: '100%',
-    bottom: 0,
-    height: 80
+    height: '80px',
   },
+
   container: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -40,7 +38,7 @@ export default function Footer() {
           <Container maxWidth="lg" className={classes.container}>
             <Img title="ENRTF Logo" alt="ENRTF Logo" fixed={data.enrtfLogo.childImageSharp.fixed} />
             <a href="https://www.netlify.com">
-              <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
+              <img title="Netlify Logo" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
             </a>
           </Container>
         </div>
