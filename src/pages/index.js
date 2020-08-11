@@ -10,11 +10,14 @@ import BackgroundImage from "gatsby-background-image"
 export const useStyles = makeStyles({
   cards: {
     display: 'flex',
-    margin: '50px 0',
+    margin: '12px 16px',
     overflowX: 'auto',
     '@media screen and (min-width: 600px)': {
       overflowX: 'hidden',
     }
+  },
+  featuredTitle: {
+    margin: '12px 0'
   },
   factCard: {
     minWidth: '190px',
@@ -51,16 +54,16 @@ export const useStyles = makeStyles({
   }
 });
 
-const IndexPage = ({data: { allFacts: { edges }, hill }}) => {
+const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
   const classes = useStyles();
   return (
     <Layout>
       <SEO title="Home" />
       <div className= {classes.heroText}>
         <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
-        <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
+        {/* <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
           to like, subscribe and hit that bell icon to never miss an upload.
-        </Typography>
+        </Typography> */}
       </div>
       <BackgroundImage
           className={classes.heroImage}
@@ -69,6 +72,7 @@ const IndexPage = ({data: { allFacts: { edges }, hill }}) => {
         >
       </BackgroundImage>
 
+      <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
       <section className={classes.cards}>
         {edges.map(({ node }) => (
           <SmallFactCard
@@ -101,7 +105,7 @@ query {
       }
     }
   }
-  allFacts: allMarkdownRemark {
+  featuredFacts: allMarkdownRemark(filter: {frontmatter: {tags: {eq: "featured"}}}) {
     edges {
       node {
         id
