@@ -25,6 +25,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import HomeIcon from '@material-ui/icons/Home';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import DescriptionIcon from '@material-ui/icons/Description';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles((theme) => ({
@@ -68,10 +69,10 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton 
-            edge="start" 
-            className={classes.menuButton} 
-            color="inherit" 
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
             aria-label="menu"
             onClick={toggleDrawer(true)}
           >
@@ -87,7 +88,7 @@ const Layout = ({ children }) => {
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        //disableBackdropTransition={!iOS} 
+        //disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
       >
         <div
@@ -104,6 +105,10 @@ const Layout = ({ children }) => {
             <ListItem button component={GatsbyLink} to="/facts" activeClassName="Mui-selected">
               <ListItemIcon><LibraryBooksIcon /></ListItemIcon>
               <ListItemText primary="All Facts" />
+            </ListItem>
+            <ListItem button component={GatsbyLink} to="/article-one" activeClassName="Mui-selected">
+              <ListItemIcon><DescriptionIcon /></ListItemIcon>
+              <ListItemText primary="How we can help pollinators" />
             </ListItem>
           </List>
         </div>
