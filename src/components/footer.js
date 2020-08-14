@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.action.disabledBackground,
     height: '80px',
   },
-
   container: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -27,7 +26,7 @@ export default function Footer() {
 					enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
 						childImageSharp {
 							fixed(height: 50, quality: 70) {
-								...GatsbyImageSharpFixed_withWebp
+								...GatsbyImageSharpFixed_noBase64
 							}
 						}
 					}
