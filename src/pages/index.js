@@ -8,26 +8,30 @@ import Typography from '@material-ui/core/Typography';
 import BackgroundImage from "gatsby-background-image"
 
 export const useStyles = makeStyles({
+  featuredTitle: {
+    margin: '12px 0'
+  },
   cards: {
     display: 'flex',
-    margin: '12px 0px',
+    margin: '12px -16px',
     overflowX: 'auto',
     '@media screen and (min-width: 600px)': {
       overflowX: 'hidden',
-    },
-  },
-  featuredTitle: {
-    margin: '12px 0'
+      margin: '12px 0px',
+    }
   },
   factCard: {
     minWidth: '190px',
     margin: '8px',
     '&:first-child': {
-      marginLeft: '0',
-    },
-    '&:last-child': {
-      marginRight: '0',
-    },
+      marginLeft: '16px',
+      '@media screen and (min-width: 600px)': {
+        marginLeft: '0px',
+      }
+    }
+  },
+  finalFactCard: {
+    paddingRight: '16px'
   },
   heroImage: {
     height: '400px',
@@ -90,12 +94,8 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
             image={node.frontmatter.image}
           />
         ))}
+        <div className={classes.finalFactCard}></div>
       </section>
-
-
-      {/* <section style={{ display:'flex', justifyContent:'space-between'}} >
-      </section> */}
-
     </Layout>
   )
 }
