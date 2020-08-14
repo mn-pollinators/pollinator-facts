@@ -82,7 +82,6 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
         >
       </BackgroundImage>
 
-<<<<<<< HEAD
       <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
       <section className={classes.cards}>
         {edges.map(({ node }) => (
@@ -100,14 +99,6 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
     </Layout>
   )
 }
-=======
-    <a href="https://www.netlify.com">
-      <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
-    </a>
-
-  </Layout>
-)
->>>>>>> master
 
 export default IndexPage
 
