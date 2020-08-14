@@ -9,6 +9,6 @@ image:
 source:
   - name: Gardening Know How
     url: https://www.gardeningknowhow.com/garden-how-to/beneficial/bats-as-pollinators.htm
-tags: ["behavior"]
+tags: ["behavior", "habitat", "flowers"]
 ---
 Night-blooming flowers like Evening Primrose, Datura, and Four o’clocks will support pollinators that are active at night, like moths and bats.
