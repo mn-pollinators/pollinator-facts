@@ -26,7 +26,7 @@ export default function Footer() {
 					enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
 						childImageSharp {
 							fixed(height: 50, quality: 70) {
-								...GatsbyImageSharpFixed_noBase64
+								...GatsbyImageSharpFixed_withWebp_noBase64
 							}
 						}
 					}
