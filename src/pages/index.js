@@ -10,18 +10,24 @@ import BackgroundImage from "gatsby-background-image"
 export const useStyles = makeStyles({
   cards: {
     display: 'flex',
-    margin: '12px 16px',
+    margin: '12px 0px',
     overflowX: 'auto',
     '@media screen and (min-width: 600px)': {
       overflowX: 'hidden',
-    }
+    },
   },
   featuredTitle: {
     margin: '12px 0'
   },
   factCard: {
     minWidth: '190px',
-    margin: '5px',
+    margin: '8px',
+    '&:first-child': {
+      marginLeft: '0',
+    },
+    '&:last-child': {
+      marginRight: '0',
+    },
   },
   heroImage: {
     height: '400px',
@@ -87,8 +93,8 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
       </section>
 
 
-      <section style={{ display:'flex', justifyContent:'space-between'}} >
-      </section>
+      {/* <section style={{ display:'flex', justifyContent:'space-between'}} >
+      </section> */}
 
     </Layout>
   )
