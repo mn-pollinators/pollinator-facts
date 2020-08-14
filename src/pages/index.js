@@ -20,14 +20,14 @@ const IndexPage = () => {
   return (
     <>
       <div className={classes.page}>
-          <Layout>
-            <SEO title="Home" />
-            <h1>Welcome to Pollinator Facts</h1>
-            <p>This site will be an educational resource with various facts about pollinators.</p>
-            <p>It is currently a work in progress. This homepage is temporary.</p>
-            <p><Link to="/facts">View the list of facts</Link></p>
-          </Layout>
-        <Footer/>
+        <Layout>
+          <SEO title="Home" />
+          <h1>Welcome to Pollinator Facts</h1>
+          <p>This site will be an educational resource with various facts about pollinators.</p>
+          <p>It is currently a work in progress. This homepage is temporary.</p>
+          <p><Link to="/facts">View the list of facts</Link></p>
+        </Layout>
+        <Footer />
       </div>
     </>
   )

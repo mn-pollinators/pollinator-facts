@@ -35,7 +35,7 @@ export default function Footer() {
       render={data => (
         <div className={classes.footer}>
           <Container maxWidth="lg" className={classes.container}>
-            <Img title="ENRTF Logo" alt="ENRTF Logo" fixed={data.enrtfLogo.childImageSharp.fixed} />
+            <Img title="ENRTF Logo" alt="ENRTF Logo" fixed={data.enrtfLogo.childImageSharp.fixed} fadeIn={false} />
             <a href="https://www.netlify.com">
               <img title="Netlify Logo" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />
             </a>
