@@ -22,16 +22,16 @@ export default function Footer() {
   return (
     <StaticQuery
       query={graphql`
-				query {
-					enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
-						childImageSharp {
-							fixed(height: 50, quality: 70) {
-								...GatsbyImageSharpFixed_withWebp_noBase64
-							}
-						}
-					}
-				}
-			`}
+        query {
+          enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
+            childImageSharp {
+              fixed(height: 50, quality: 70) {
+                ...GatsbyImageSharpFixed_withWebp_noBase64
+              }
+            }
+          }
+        }
+      `}
       render={data => (
         <div className={classes.footer}>
           <Container maxWidth="lg" className={classes.container}>
