@@ -27,7 +27,7 @@ export default function TagFilter({ title, allTags }) {
               <Chip
                 size="small"
                 key={index}
-                color={context.selectedTags.indexOf(singleTag) === -1? 'default': 'primary'}
+                color={context.selectedTags.indexOf(singleTag) === -1 ? 'default' : 'primary'}
                 label={singleTag}
                 clickable={true}
                 onClick={() => context.handleClick(singleTag)}

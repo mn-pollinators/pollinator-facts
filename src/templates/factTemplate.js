@@ -26,9 +26,9 @@ const useStyles = makeStyles({
 
 export default ({ data }) => {
   const fact = data.markdownRemark;
-  const relatedFactPaths = data.markdownRemark.fields.relatedFileAbsolutePaths.slice(0,3);
+  const relatedFactPaths = data.markdownRemark.fields.relatedFileAbsolutePaths.slice(0, 3);
   const relatedFactEdges = data.relatedFacts.edges;
-  const relatedFacts = relatedFactPaths.map(path => relatedFactEdges.find(({node}) => node.fileAbsolutePath === path));
+  const relatedFacts = relatedFactPaths.map(path => relatedFactEdges.find(({ node }) => node.fileAbsolutePath === path));
   const classes = useStyles();
   return (
     <Layout>
@@ -43,7 +43,7 @@ export default ({ data }) => {
           factHTML={fact.html}
         />
         <Typography variant="h6" component="h3" className={classes.relatedFactsTitle}>Related Facts</Typography>
-        <ListView listData={relatedFacts} listStyles={classes.relatedFactList}/>
+        <ListView listData={relatedFacts} listStyles={classes.relatedFactList} />
       </div>
     </Layout>
   )

@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
             aria-label="menu"
             onClick={toggleDrawer(true)}
           >
-              <MenuIcon />
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="h1">
             {data.site.siteMetadata.title}
