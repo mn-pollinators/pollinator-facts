@@ -11,6 +11,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   card: {
@@ -18,6 +20,13 @@ const useStyles = makeStyles({
     flexWrap: 'wrap'
   }
 });
+
+function randomColor() {
+  let hex = Math.floor(Math.random() * 0xFFFFFF);
+  let color = "#" + hex.toString(16);
+
+  return color;
+}
 
 const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
   const classes = useStyles();
@@ -52,9 +61,15 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
 
       <List component="nav">
         {dynamicUsers.nodes.map((contributor) => {
+          const displayName = contributor.name? contributor.name : contributor.login;
           return (
-            <ListItem  button component="a" href={contributor.htmlUrl} key={contributor.login}>
-              <ListItemText primary={contributor.name? contributor.name : contributor.login}/>
+            <ListItem button component="a" href={contributor.htmlUrl} key={contributor.login}>
+               <ListItemAvatar>
+                <Avatar src={contributor.avatarUrl} style={{backgroundColor: randomColor()}}>
+                  {displayName.charAt(0).toUpperCase()}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={displayName}/>
             </ListItem>
           )
         })}
