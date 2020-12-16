@@ -15,14 +15,14 @@ export default function GridView({ gridData, className }) {
   return (
     <Grid className={className} container flexwrap="wrap" direction="row" spacing={1} >
       {gridData.map(({ node }) => (
-            <SmallFactCard
-              key={node.id}
-              className={gridStyles.factCard}
-              slug={node.fields.slug}
-              title={node.frontmatter.title}
-              image={node.frontmatter.image}
-            />
-          ))}
+        <SmallFactCard
+          key={node.id}
+          className={gridStyles.factCard}
+          slug={node.fields.slug}
+          title={node.frontmatter.title}
+          image={node.frontmatter.image}
+        />
+      ))}
     </Grid>
   )
 }

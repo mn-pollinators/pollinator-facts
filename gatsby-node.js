@@ -47,12 +47,12 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.fields.slug,
-        relatedFactPaths: node.fields.relatedFileAbsolutePaths.slice(0,3)
+        relatedFactPaths: node.fields.relatedFileAbsolutePaths.slice(0, 3)
       },
     })
   })
 
-  tags.forEach( tag => {
+  tags.forEach(tag => {
     createPage({
       path: `/tags/${(tag.fieldValue)}`,
       component: path.resolve(`./src/templates/tagTemplate.js`),
