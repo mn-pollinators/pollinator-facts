@@ -11,7 +11,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 
-import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Button from '@material-ui/core/Button';
 
@@ -133,6 +132,17 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
 
             </CardContent>
           </Card>
+
+          <Card>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">License</Typography>
+              <Typography>
+                The images used for facts belong to their respective owners. Clicking the info button on the bottom right of a fact
+                presents the information and links to the image owners as well as the license under which the image is published.
+              </Typography>
+            </CardContent>
+          </Card>
+
         </div>
       </div>
 
