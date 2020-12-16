@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
@@ -8,15 +8,18 @@ import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia';
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
 const useStyles = makeStyles({
   card: {
     display: 'flex',
     flexWrap: 'wrap'
   }
-
 });
 
-const About = ({ data: { enrtfLogo } }) => {
+const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
   const classes = useStyles();
   return (
     <Layout>
@@ -47,13 +50,15 @@ const About = ({ data: { enrtfLogo } }) => {
 
       </Card>
 
-      {/* Github Link */}
-      {/* Link to contributors*/}
-      <Typography>
-        Thank you for those who&nbsp;
-        <a href="https://github.com/mn-pollinators/pollinator-facts/graphs/contributors">contributed</a>
-        &nbsp;to the project
-      </Typography>
+      <List component="nav">
+        {dynamicUsers.nodes.map((contributor) => {
+          return (
+            <ListItem  button component="a" href={contributor.htmlUrl} key={contributor.login}>
+              <ListItemText primary={contributor.name? contributor.name : contributor.login}/>
+            </ListItem>
+          )
+        })}
+      </List>
 
     </Layout>
   )
@@ -68,6 +73,14 @@ query {
 			fixed(width: 100) {
 				...GatsbyImageSharpFixed_withWebp
 			}
+    }
+  }
+  dynamicUsers: allGitHubContributor(sort: {fields: contributions, order: DESC}, filter: {login: {ne: "dependabot-preview[bot]"}}) {
+    nodes {
+      login
+      name
+      htmlUrl
+      avatarUrl
     }
   }
 }`

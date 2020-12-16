@@ -55,6 +55,12 @@ module.exports = {
         doc_lang: "en",
       },
     },
+    {
+      resolve: `gatsby-source-github-contributors`,
+      options: {
+        repo: "mn-pollinators/pollinator-facts"
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
