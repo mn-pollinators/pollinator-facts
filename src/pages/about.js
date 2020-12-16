@@ -176,7 +176,7 @@ query {
   enrtfLogo: file(relativePath: { eq: "enrtf_logo.png" }) {
     childImageSharp {
 			fixed(width: 180) {
-				...GatsbyImageSharpFixed_withWebp
+				...GatsbyImageSharpFixed_withWebp_noBase64
 			}
     }
   }
