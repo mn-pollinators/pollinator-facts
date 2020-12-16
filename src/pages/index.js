@@ -4,10 +4,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Footer from "../components/footer"
 import { makeStyles } from '@material-ui/core/styles';
-import './index.css';
 
 const useStyles = makeStyles({
-  page: {
+  homepage: {
     minHeight: '100%',
     display: 'grid',
     gridTemplateRows: 'auto 1fr auto',
@@ -19,7 +18,7 @@ const IndexPage = () => {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.page}>
+      <div className={classes.homepage}>
         <Layout>
           <SEO title="Home" />
           <h1>Welcome to Pollinator Facts</h1>
