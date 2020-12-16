@@ -63,6 +63,24 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
       <SEO title="About" />
       <div className={classes.aboutPage}>
         <div className={classes.aboutCards}>
+
+          <Card>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">Pollinator Facts</Typography>
+              <Typography>
+                Pollinator Facts website was created alongside the <a href="https://buzzabout.app">Buzz About</a> participatory simulation game to
+                teach people about native pollinators of Minnesota. This website holds many interesting tidbits as well beautiful pictures of pollinators, their food, homes
+                and habits.
+              </Typography>
+            </CardContent>
+
+            <CardActions>
+              <Button startIcon={<GitHubIcon />} href="https://github.com/mn-pollinators/pollinator-facts" >
+                Github Repo
+              </Button>
+            </CardActions>
+          </Card>
+
           <Card>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">Minnesota Pollinators</Typography>
@@ -73,6 +91,7 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
                 on a site in Morris, MN and help people learn about pollinators and the native prairie plants that support them.
               </Typography>
             </CardContent>
+
             <CardActions>
               <Button startIcon={<GitHubIcon />} href="https://github.com/mn-pollinators" >
                 Github
