@@ -9,12 +9,18 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardActions from '@material-ui/core/CardActions';
+
+import IconButton from '@material-ui/core/IconButton';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Button from '@material-ui/core/Button';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+
 
 const useStyles = makeStyles({
   aboutPage: {
@@ -58,6 +64,22 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
       <SEO title="About" />
       <div className={classes.aboutPage}>
         <div className={classes.aboutCards}>
+          <Card>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">Minnesota Pollinators</Typography>
+              <Typography>
+                Minnesota Pollinators is an organization of <a href="https://morris.umn.edu/">University of Minnesota Morris</a> students and faculty
+                working on projects that help the native pollinators of Minnesota.
+                This project is part of a <a href="https://wcroc.cfans.umn.edu/restoring-native-prairie">grant-funded project</a> to restore native prairie
+                on a site in Morris, MN and help people learn about pollinators and the native prairie plants that support them.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button startIcon={<GitHubIcon />} href="https://github.com/mn-pollinators" >
+                Github
+              </Button>
+            </CardActions>
+          </Card>
 
           <Card>
             <CardContent>
