@@ -50,12 +50,6 @@ const useStyles = makeStyles({
   }
 });
 
-function randomColor() {
-  let hex = Math.floor(Math.random() * 0xFFFFFF);
-  let color = "#" + hex.toString(16);
-
-  return color;
-}
 
 const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
   const classes = useStyles();
@@ -71,13 +65,11 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
 
               <List component="nav">
                 {dynamicUsers.nodes.map((contributor) => {
-                  const displayName = contributor.name? contributor.name : contributor.login;
+                  const displayName = contributor.name?? contributor.login;
                   return (
                     <ListItem button component="a" href={contributor.htmlUrl} key={contributor.login}>
                       <ListItemAvatar>
-                        <Avatar src={contributor.avatarUrl} style={{backgroundColor: randomColor()}}>
-                          {displayName.charAt(0).toUpperCase()}
-                        </Avatar>
+                        <Avatar alt={displayName} src={contributor.avatarUrl} />
                       </ListItemAvatar>
                       <ListItemText primary={displayName}/>
                     </ListItem>
