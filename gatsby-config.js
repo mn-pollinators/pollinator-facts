@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Pollinator Facts`,
@@ -59,6 +63,35 @@ module.exports = {
       resolve: `gatsby-source-github-contributors`,
       options: {
         repo: "mn-pollinators/pollinator-facts"
+      }
+    },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: process.env.GATSBY_GH_TOKEN,
+        graphQLQuery: `
+        query UsersQuery {
+          nate: user(login: "nkfoss") {
+            ...UserFragment
+          }
+          liz: user(login: "stev0531") {
+            ...UserFragment
+          }
+          matt: user(login: "munnsmunns") {
+            ...UserFragment
+          }
+          olivia: user(login: "carl5004") {
+            ...UserFragment
+          }
+        }
+
+        fragment UserFragment on User {
+          login
+          name
+          url
+          avatarUrl
+        }
+        `
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

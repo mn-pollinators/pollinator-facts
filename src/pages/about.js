@@ -55,8 +55,9 @@ const useStyles = makeStyles({
 });
 
 
-const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
+const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
   const classes = useStyles();
+  const staticUserList = staticUsers.data;
   return (
     <Layout>
       <SEO title="About" />
@@ -114,8 +115,21 @@ const About = ({ data: { enrtfLogo, dynamicUsers } }) => {
                     </ListItem>
                   )
                 })}
-              </List>
 
+                {Object.keys(staticUserList).map((objectName, index) => {
+                  const displayName = staticUserList[objectName].name?? staticUserList[objectName].login;
+                  const url = staticUserList[objectName].url;
+                  const avatar = staticUserList[objectName].avatarUrl ;
+                  return (
+                    <ListItem button component="a" href={url} key={index}>
+                      <ListItemAvatar>
+                          <Avatar alt={displayName} src={avatar} />
+                        </ListItemAvatar>
+                        <ListItemText primary={displayName}/>
+                    </ListItem>
+                  )
+                })}
+              </List>
             </CardContent>
           </Card>
 
@@ -185,6 +199,31 @@ query {
       name
       htmlUrl
       avatarUrl
+    }
+  }
+  staticUsers: githubData {
+    data {
+      liz {
+        avatarUrl
+        login
+        url
+      }
+      matt {
+        avatarUrl
+        login
+        url
+      }
+      nate {
+        avatarUrl
+        login
+        name
+        url
+      }
+      olivia {
+        avatarUrl
+        login
+        url
+      }
     }
   }
 }`
