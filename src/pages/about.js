@@ -29,7 +29,6 @@ const useStyles = makeStyles({
     gridTemplateColumns: '100%'
   },
   aboutCards: {
-    maxWidth: '800px',
     margin: '16px',
     '& .MuiCard-root:not(:last-child)': {
       marginBottom: '16px'
