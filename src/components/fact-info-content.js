@@ -14,7 +14,7 @@ const citationStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FactInfoContent({factSource, factImage}) {
+export default function FactInfoContent({ factSource, factImage }) {
 
   const theme = useTheme();
   const citationClasses = citationStyles(theme);
@@ -24,12 +24,12 @@ export default function FactInfoContent({factSource, factImage}) {
       <div className={citationClasses.section1}>
         <Typography gutterBottom>
           Fact text adapted from:&nbsp;
-          {factSource.map((source,index) => (
-            <span>{index ? ',  ' : ''}<a key={source.name + index} href={source?.url}>{source?.name}</a></span>
-          ))}
+          {factSource.map((source, index) => (
+          <span>{index ? ',  ' : ''}<a key={source.name + index} href={source?.url}>{source?.name}</a></span>
+        ))}
         </Typography>
       </div>
-      <Divider  />
+      <Divider />
       <div className={citationClasses.section2}>
         <Typography gutterBottom>
           <a href={factImage?.url}>{factImage?.alt}</a> image by {factImage?.creator}

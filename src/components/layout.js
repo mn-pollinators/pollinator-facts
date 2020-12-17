@@ -68,14 +68,14 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton 
-            edge="start" 
-            className={classes.menuButton} 
-            color="inherit" 
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
             aria-label="menu"
             onClick={toggleDrawer(true)}
           >
-              <MenuIcon />
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="h1">
             {data.site.siteMetadata.title}
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        //disableBackdropTransition={!iOS} 
+        //disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
       >
         <div

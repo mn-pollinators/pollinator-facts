@@ -27,13 +27,13 @@ const factCardStyles = makeStyles({
     lineHeight: 0,
   },
   body: {
-   "& p": {
-    margin: 0,
-   },
+    "& p": {
+      margin: 0,
+    },
   },
   inlineTags: {
     marginBottom: '12px',
-    '& > *' : {
+    '& > *': {
       marginLeft: '5px',
       marginTop: '5px',
     }
@@ -43,7 +43,7 @@ const factCardStyles = makeStyles({
   }
 });
 
-export default function LargeFactCard({factTitle, factImage, factSource, factHTML, className, factTags}) {
+export default function LargeFactCard({ factTitle, factImage, factSource, factHTML, className, factTags }) {
 
   const classes = factCardStyles();
 
@@ -70,55 +70,55 @@ export default function LargeFactCard({factTitle, factImage, factSource, factHTM
     <>
       <Card className={classes.root, className}>
 
-      <CardMedia
-        className={classes.media}
-        component={Img}
-        fluid={factImage.src.childImageSharp.fluid}
-        alt={factImage.alt}
-      />
-      <CardContent>
-
-        <Typography gutterBottom variant="h5" component="h2">
-          {factTitle}
-        </Typography>
-        <Typography
-          className={classes.body}
-          variant="body2"
-          color="textPrimary"
-          component="div"
-          dangerouslySetInnerHTML={{ __html: factHTML }}
+        <CardMedia
+          className={classes.media}
+          component={Img}
+          fluid={factImage.src.childImageSharp.fluid}
+          alt={factImage.alt}
         />
-      </CardContent>
+        <CardContent>
 
-      <CardActions>
-        <Grid justify="space-between" container alignItems="flex-end" wrap="nowrap">
+          <Typography gutterBottom variant="h5" component="h2">
+            {factTitle}
+          </Typography>
+          <Typography
+            className={classes.body}
+            variant="body2"
+            color="textPrimary"
+            component="div"
+            dangerouslySetInnerHTML={{ __html: factHTML }}
+          />
+        </CardContent>
 
-          <Grid item className={classes.inlineTags}>
-            {factTags.map((factTag, index) => (
-              <Tag key={index} tagLabel={factTag} />
-            ))}
-          </Grid>
+        <CardActions>
+          <Grid justify="space-between" container alignItems="flex-end" wrap="nowrap">
 
-          <Grid item container wrap="nowrap" className={classes.buttons}>
+            <Grid item className={classes.inlineTags}>
+              {factTags.map((factTag, index) => (
+                <Tag key={index} tagLabel={factTag} />
+              ))}
+            </Grid>
 
-          {!isSSR && navigator.share &&
+            <Grid item container wrap="nowrap" className={classes.buttons}>
+
+              {!isSSR && navigator.share &&
                 <IconButton aria-label="share" onClick={shareClick}>
-                  <ShareIcon/>
+                  <ShareIcon />
                 </IconButton>
               }
 
-            <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
-              <InfoOutlinedIcon />
-            </IconButton>
+              <IconButton aria-label="fact info" onClick={handleDialogClickOpen}>
+                <InfoOutlinedIcon />
+              </IconButton>
+
+            </Grid>
 
           </Grid>
-
-        </Grid>
-      </CardActions>
-    </Card>
-    <FactInfoDialog open={dialogOpen} onClose={handleDialogClose} factSource={factSource} factImage={factImage}/>
+        </CardActions>
+      </Card>
+      <FactInfoDialog open={dialogOpen} onClose={handleDialogClose} factSource={factSource} factImage={factImage} />
     </>
-    )
+  )
 }
 
 const dialogStyles = makeStyles(theme => ({
@@ -155,7 +155,7 @@ function FactInfoDialog(props) {
             <CloseIcon />
           </IconButton>
         </MuiDialogTitle>
-        <FactInfoContent factSource={factSource} factImage={factImage}/>
+        <FactInfoContent factSource={factSource} factImage={factImage} />
       </Dialog>
     </div>
   );

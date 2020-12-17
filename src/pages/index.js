@@ -2,12 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
+import Footer from "../components/footer"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
 import Typography from '@material-ui/core/Typography';
 import BackgroundImage from "gatsby-background-image"
 
 export const useStyles = makeStyles({
+  homepage: {
+    minHeight: '100%',
+    display: 'grid',
+    gridTemplateRows: 'auto 1fr auto',
+    gridTemplateColumns: '100%'
+  },
   featuredTitle: {
     margin: '12px 0'
   },
@@ -67,36 +74,41 @@ export const useStyles = makeStyles({
 const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
   const classes = useStyles();
   return (
-    <Layout>
-      <SEO title="Home" />
-      <div className= {classes.heroText}>
-        <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
-        {/* <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
-          to like, subscribe and hit that bell icon to never miss an upload.
-        </Typography> */}
-      </div>
-      <BackgroundImage
-          className={classes.heroImage}
-          fluid={hill.childImageSharp.fluid}
-          backgroundColor={`#040e18`}
-        >
-      </BackgroundImage>
+    <>
+      <div className={classes.homepage}>
+        <Layout>
+          <SEO title="Home" />
+          <div className= {classes.heroText}>
+            <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
+            {/* <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
+              to like, subscribe and hit that bell icon to never miss an upload.
+            </Typography> */}
+          </div>
+          <BackgroundImage
+              className={classes.heroImage}
+              fluid={hill.childImageSharp.fluid}
+              backgroundColor={`#040e18`}
+            >
+          </BackgroundImage>
 
-      <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
-      <section className={classes.cards}>
-        {edges.map(({ node }) => (
-          <SmallFactCard
-            key={node.id}
-            className={classes.factCard}
-            slug={node.fields.slug}
-            title={node.frontmatter.title}
-            tags={node.frontmatter.tags}
-            image={node.frontmatter.image}
-          />
-        ))}
-        <div className={classes.finalFactCard}></div>
-      </section>
-    </Layout>
+          <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
+          <section className={classes.cards}>
+            {edges.map(({ node }) => (
+              <SmallFactCard
+                key={node.id}
+                className={classes.factCard}
+                slug={node.fields.slug}
+                title={node.frontmatter.title}
+                tags={node.frontmatter.tags}
+                image={node.frontmatter.image}
+              />
+            ))}
+            <div className={classes.finalFactCard}></div>
+          </section>
+        </Layout>
+        <Footer />
+      </div>
+    </>
   )
 }
 
