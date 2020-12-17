@@ -68,7 +68,7 @@ module.exports = {
     {
       resolve: `gatsby-source-github-api`,
       options: {
-        token: process.env.GH_TOKEN,
+        token: process.env.GITHUB_TOKEN,
         graphQLQuery: `
         query UsersQuery {
           nate: user(login: "nkfoss") {
