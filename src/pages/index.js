@@ -40,10 +40,15 @@ export const useStyles = makeStyles({
   finalFactCard: {
     paddingRight: '16px'
   },
-  heroImage: {
+  heroWrapper: {
     height: '400px',
     width: '100%',
+    borderStyle: 'solid',
     marginTop: '20px',
+  },
+  heroImage: {
+    height: '100%',
+    width: '100%',
     backgroundPosition: 'top',
     backgroundRepeat: 'repeat-y',
     backgroundSize: 'cover',
@@ -52,21 +57,14 @@ export const useStyles = makeStyles({
   },
   heroText: {
     height: '400px',
-    maxWidth: '800px',
+    width: '100%',
     position: 'absolute',
-    zIndex: '1',
+    zIndex: '1'
   },
   heroTopText: {
     padding: '50px',
-    '@media screen and (max-width: 600px)': {
-      fontSize: '2rem'
-    }
-  },
-  heroBottomText: {
-    padding: '50px',
-    paddingTop: '0px',
-    '@media screen and (max-width: 600px)': {
-      fontSize: '1rem'
+    '@media screen and (max-width: 410px)': {
+      fontSize: '3rem'
     }
   }
 });
@@ -79,17 +77,15 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
         <Layout>
           <SEO title="Home" />
           <div className= {classes.heroText}>
-            <Typography variant="h2" className={classes.heroTopText}>Welcome to <br></br> Pollinator Facts</Typography>
-            {/* <Typography variant="h6" className={classes.heroBottomText}>You won't believe your eyes when you see the pollinator facts we have! Don't forget
-              to like, subscribe and hit that bell icon to never miss an upload.
-            </Typography> */}
+            <Typography variant="h2" className={classes.heroTopText}>Welcome to Pollinator Facts</Typography>
           </div>
-          <BackgroundImage
+          <div className={classes.heroWrapper}>
+            <BackgroundImage
               className={classes.heroImage}
               fluid={hill.childImageSharp.fluid}
-              backgroundColor={`#040e18`}
             >
-          </BackgroundImage>
+            </BackgroundImage>
+          </div>
 
           <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
           <section className={classes.cards}>
