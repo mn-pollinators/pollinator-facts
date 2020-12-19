@@ -15,6 +15,25 @@ export const useStyles = makeStyles({
     gridTemplateRows: 'auto 1fr auto',
     gridTemplateColumns: '100%'
   },
+  imageWrapper: {
+    width: '100%',
+    height: '400px',
+    display: 'flex',
+    overflow: 'hidden',
+    marginTop: '20px',
+  },
+  image: {
+    width: '100%',
+    height: '400px',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  textWrapper: {
+    display: 'flex',
+    textAlign: 'center',
+    alignItems: 'center',
+    zIndex: 2,
+  },
   featuredTitle: {
     margin: '12px 0'
   },
@@ -39,33 +58,6 @@ export const useStyles = makeStyles({
   },
   finalFactCard: {
     paddingRight: '16px'
-  },
-  heroWrapper: {
-    height: '400px',
-    width: '100%',
-    borderStyle: 'solid',
-    marginTop: '20px',
-  },
-  heroImage: {
-    height: '100%',
-    width: '100%',
-    backgroundPosition: 'top',
-    backgroundRepeat: 'repeat-y',
-    backgroundSize: 'cover',
-    position: 'static',
-    filter: 'blur(3px) opacity(70%)',
-  },
-  heroText: {
-    height: '400px',
-    width: '100%',
-    position: 'absolute',
-    zIndex: '1'
-  },
-  heroTopText: {
-    padding: '50px',
-    '@media screen and (max-width: 410px)': {
-      fontSize: '3rem'
-    }
   }
 });
 
@@ -76,16 +68,20 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
       <div className={classes.homepage}>
         <Layout>
           <SEO title="Home" />
-          <div className= {classes.heroText}>
-            <Typography variant="h2" className={classes.heroTopText}>Welcome to Pollinator Facts</Typography>
-          </div>
-          <div className={classes.heroWrapper}>
+          <div className={classes.imageWrapper}>
             <BackgroundImage
-              className={classes.heroImage}
+              Tag="section"
+              className={classes.image}
               fluid={hill.childImageSharp.fluid}
+              title="The Hill"
+              aria-label="Hill drawing"
             >
+              <div className={classes.textWrapper}>
+                <Typography variant="h2">Welcome to Pollinator Facts</Typography>
+              </div>
             </BackgroundImage>
           </div>
+
 
           <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
           <section className={classes.cards}>
@@ -114,7 +110,7 @@ export const homeQuery = graphql`
 query {
   hill: file(relativePath: { eq: "other/hill.jpg"}){
     childImageSharp{
-      fluid(quality: 70, maxWidth: 400){
+      fluid(quality: 70, maxWidth: 1400){
         ...GatsbyImageSharpFluid
       }
     }
