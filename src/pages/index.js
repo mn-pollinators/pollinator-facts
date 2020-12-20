@@ -41,7 +41,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     margin: '12px -16px',
     overflowX: 'auto',
-    '@media screen and (min-width: 600px)': {
+    '@media screen and (min-width: 1260px)': {
       overflowX: 'hidden',
       margin: '12px 0px',
     }
@@ -51,7 +51,7 @@ export const useStyles = makeStyles({
     margin: '8px',
     '&:first-child': {
       marginLeft: '16px',
-      '@media screen and (min-width: 600px)': {
+      '@media screen and (min-width: 1260px)': {
         marginLeft: '0px',
       }
     }
