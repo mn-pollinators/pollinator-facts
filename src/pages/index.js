@@ -6,7 +6,9 @@ import Footer from "../components/footer"
 import SEO from "../components/seo"
 import SmallFactCard from "../components/small-fact-card"
 import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card'
 import BackgroundImage from "gatsby-background-image"
+
 
 export const useStyles = makeStyles({
   homepage: {
@@ -27,6 +29,9 @@ export const useStyles = makeStyles({
     height: '400px',
     display: 'flex',
     justifyContent: 'center',
+    '&:before, &:after': {
+      filter: 'blur(3px) opacity(70%)'
+    }
   },
   textWrapper: {
     display: 'flex',
@@ -68,7 +73,7 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
       <div className={classes.homepage}>
         <Layout>
           <SEO title="Home" />
-          <div className={classes.imageWrapper}>
+          <Card className={classes.imageWrapper}>
             <BackgroundImage
               Tag="section"
               className={classes.image}
@@ -80,7 +85,7 @@ const IndexPage = ({data: { featuredFacts: { edges }, hill }}) => {
                 <Typography variant="h2">Welcome to Pollinator Facts</Typography>
               </div>
             </BackgroundImage>
-          </div>
+          </Card>
 
 
           <Typography className={classes.featuredTitle} variant="h4" component="h4">Featured Facts</Typography>
