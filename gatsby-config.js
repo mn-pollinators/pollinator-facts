@@ -62,7 +62,8 @@ module.exports = {
     {
       resolve: `gatsby-source-github-contributors`,
       options: {
-        repo: "mn-pollinators/pollinator-facts"
+        repo: "mn-pollinators/pollinator-facts",
+        token: process.env.GITHUB_TOKEN
       }
     },
     {

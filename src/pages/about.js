@@ -7,6 +7,7 @@ import SEO from "../components/seo";
 import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
@@ -19,6 +20,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import iconSVG from '../../static/icons/icon-circle.svg';
 
 
 const useStyles = makeStyles({
@@ -65,8 +67,11 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
         <div className={classes.aboutCards}>
 
           <Card>
+            <CardHeader
+              avatar={<Avatar alt="projectLogo" src={iconSVG} />}
+              title={<Typography variant="h5" component="h2">Pollinator Facts</Typography>}
+              />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">Pollinator Facts</Typography>
               <Typography>
                 Pollinator Facts website was created alongside the <a href="https://buzzabout.app">Buzz About</a> participatory simulation game to
                 teach people about native pollinators of Minnesota. This website holds many interesting tidbits as well beautiful pictures of pollinators, their food, homes
@@ -193,7 +198,7 @@ query {
 			}
     }
   }
-  dynamicUsers: allGitHubContributor(sort: {fields: contributions, order: DESC}, filter: {login: {ne: "dependabot-preview[bot]"}}) {
+  dynamicUsers: allGitHubContributor(sort: {fields: contributions}, filter: {login: {ne: "dependabot-preview[bot]"}}) {
     nodes {
       login
       name
