@@ -73,8 +73,8 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
               />
             <CardContent>
               <Typography>
-                Pollinator Facts website was created alongside the <a href="https://buzzabout.app">Buzz About</a> participatory simulation game to
-                teach people about native pollinators of Minnesota. This website holds many interesting tidbits as well beautiful pictures of pollinators, their food, homes
+                Pollinator Facts website was created alongside the Buzz About, a participatory simulation game, to teach people about native
+                pollinators of Minnesota. This website holds many interesting tidbits as well beautiful pictures of pollinators, their food, homes
                 and habits.
               </Typography>
             </CardContent>
@@ -111,10 +111,11 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
               <List component="nav">
                 {dynamicUsers.nodes.map((contributor) => {
                   const displayName = contributor.name?? contributor.login;
+                  const avatar = contributor.avatarUrl;
                   return (
                     <ListItem button component="a" href={contributor.htmlUrl} key={contributor.login}>
                       <ListItemAvatar>
-                        <Avatar alt={displayName} src={contributor.avatarUrl} />
+                        <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
                       </ListItemAvatar>
                       <ListItemText primary={displayName}/>
                     </ListItem>
@@ -128,7 +129,7 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
                   return (
                     <ListItem button component="a" href={url} key={index}>
                       <ListItemAvatar>
-                          <Avatar alt={displayName} src={avatar} />
+                          <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
                         </ListItemAvatar>
                         <ListItemText primary={displayName}/>
                     </ListItem>
