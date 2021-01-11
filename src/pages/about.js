@@ -198,7 +198,7 @@ query {
 			}
     }
   }
-  dynamicUsers: allGitHubContributor(sort: {fields: contributions}, filter: {login: {ne: "dependabot-preview[bot]"}}) {
+  dynamicUsers: allGitHubContributor(filter: {login: {ne: "dependabot-preview[bot]"}}) {
     nodes {
       login
       name
