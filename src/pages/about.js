@@ -122,16 +122,15 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
                   )
                 })}
 
-                {Object.keys(staticUserList).map((objectName, index) => {
-                  const displayName = staticUserList[objectName].name?? staticUserList[objectName].login;
-                  const url = staticUserList[objectName].url;
-                  const avatar = staticUserList[objectName].avatarUrl ;
+                {Object.values(staticUserList).map((user, index) => {
+                  const displayName = user.name?? user.login;
+                  const avatar = user.avatarUrl;
                   return (
-                    <ListItem button component="a" href={url} key={index}>
+                    <ListItem button component="a" href={user.url} key={index}>
                       <ListItemAvatar>
-                          <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
-                        </ListItemAvatar>
-                        <ListItemText primary={displayName}/>
+                        <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
+                      </ListItemAvatar>
+                      <ListItemText primary={displayName}/>
                     </ListItem>
                   )
                 })}
