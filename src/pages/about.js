@@ -16,11 +16,9 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Button from '@material-ui/core/Button';
 
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import iconSVG from '../../static/icons/icon-circle.svg';
+import GitHubContributorList from '../components/github-contributor-list';
 
 
 const useStyles = makeStyles({
@@ -107,33 +105,9 @@ const About = ({ data: { enrtfLogo, dynamicUsers, staticUsers } }) => {
           <Card>
             <CardContent>
               <Typography variant="h5" component="h2">Contributors</Typography>
-
               <List component="nav">
-                {dynamicUsers.nodes.map((contributor) => {
-                  const displayName = contributor.name?? contributor.login;
-                  const avatar = contributor.avatarUrl;
-                  return (
-                    <ListItem button component="a" href={contributor.htmlUrl} key={contributor.login}>
-                      <ListItemAvatar>
-                        <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
-                      </ListItemAvatar>
-                      <ListItemText primary={displayName}/>
-                    </ListItem>
-                  )
-                })}
-
-                {Object.values(staticUserList).map((user, index) => {
-                  const displayName = user.name?? user.login;
-                  const avatar = user.avatarUrl;
-                  return (
-                    <ListItem button component="a" href={user.url} key={index}>
-                      <ListItemAvatar>
-                        <Avatar alt={displayName} src={`${avatar}&size=40`} srcSet={`${avatar}&size=80 2x, ${avatar}&size=160 4x`} />
-                      </ListItemAvatar>
-                      <ListItemText primary={displayName}/>
-                    </ListItem>
-                  )
-                })}
+                {dynamicUsers.nodes.map((contributor, index) => <GitHubContributorList key={index} contributor={contributor} />)}
+                {Object.values(staticUserList).map((user, index) => <GitHubContributorList key={index} contributor={user} /> )}
               </List>
             </CardContent>
           </Card>
